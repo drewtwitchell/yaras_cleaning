@@ -565,14 +565,14 @@ function CoverageMap() {
         <ellipse cx="200" cy="220" rx="170" ry="170" fill="#7c3aed" opacity="0.05" />
 
         {/* Location dots + labels - Southern NH */}
-        <circle cx="180" cy="75" r="4" fill="#7c3aed" />
-        <text x="192" y="79" fill="#2d2d3f" fontSize="11" fontWeight="600">Nashua</text>
-        <circle cx="230" cy="95" r="4" fill="#7c3aed" />
-        <text x="242" y="99" fill="#2d2d3f" fontSize="11" fontWeight="600">Salem</text>
-        <circle cx="170" cy="110" r="4" fill="#7c3aed" />
-        <text x="182" y="114" fill="#6b6b8a" fontSize="10">Hudson</text>
-        <circle cx="200" cy="103" r="3" fill="#c4b5fd" />
-        <text x="210" y="107" fill="#6b6b8a" fontSize="10">Pelham</text>
+        <circle cx="175" cy="60" r="4" fill="#7c3aed" />
+        <text x="187" y="64" fill="#2d2d3f" fontSize="11" fontWeight="600">Nashua</text>
+        <circle cx="250" cy="80" r="4" fill="#7c3aed" />
+        <text x="262" y="84" fill="#2d2d3f" fontSize="11" fontWeight="600">Salem</text>
+        <circle cx="155" cy="115" r="4" fill="#7c3aed" />
+        <text x="125" y="130" fill="#6b6b8a" fontSize="10">Hudson</text>
+        <circle cx="210" cy="100" r="3" fill="#c4b5fd" />
+        <text x="195" y="90" fill="#6b6b8a" fontSize="10">Pelham</text>
 
         {/* Location dots + labels - Boston area */}
         <circle cx="290" cy="220" r="6" fill="#7c3aed" />
