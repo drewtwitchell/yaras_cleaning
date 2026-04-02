@@ -426,7 +426,16 @@ function Services() {
             const Icon = service.icon;
             return (
               <Reveal key={service.title} delay={Math.min(i + 1, 5)}>
-                <div className={`bento-card group relative overflow-hidden rounded-3xl p-6 sm:p-8 ${service.size || ""} ${service.big ? "bg-gradient-to-br from-primary-deeper via-primary-dark to-primary min-h-[280px] sm:min-h-[360px]" : "bg-section-alt border border-primary/5 hover:border-primary/15"} ${service.wide ? "min-h-[160px]" : ""} flex flex-col justify-end h-full`}>
+                <a href={PHONE_HREF} className={`bento-card group relative overflow-hidden rounded-3xl p-6 sm:p-8 ${service.size || ""} ${service.big ? "bg-gradient-to-br from-primary-deeper via-primary-dark to-primary min-h-[280px] sm:min-h-[360px]" : "bg-section-alt border border-primary/5 hover:border-primary/15"} ${service.wide ? "min-h-[160px]" : ""} flex flex-col justify-end h-full block cursor-pointer`}>
+                  {/* Hover overlay */}
+                  <div className={`absolute inset-0 z-20 rounded-3xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${service.big ? "bg-primary-deeper/80" : "bg-primary/90"}`}>
+                    <div className="text-center text-white">
+                      <PhoneIcon className="w-8 h-8 mx-auto mb-2" />
+                      <p className="font-bold text-lg">Call for a Quote</p>
+                      <p className="text-white/60 text-sm mt-1">{PHONE_NUMBER}</p>
+                    </div>
+                  </div>
+
                   {/* Decorative bg elements for big card */}
                   {service.big && (
                     <>
@@ -446,7 +455,7 @@ function Services() {
                       {service.desc}
                     </p>
                   </div>
-                </div>
+                </a>
               </Reveal>
             );
           })}
