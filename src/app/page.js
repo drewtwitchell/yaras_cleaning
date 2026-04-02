@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 
-const PHONE_NUMBER = "(555) 123-4567";
-const PHONE_HREF = "tel:+15551234567";
+const PHONE_NUMBER = "(508) 735-4579";
+const PHONE_HREF = "tel:+15087354579";
 
 function SparkleIcon({ className }) {
   return (
