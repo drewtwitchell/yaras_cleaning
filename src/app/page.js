@@ -536,68 +536,135 @@ function Quote() {
    SERVICE AREA
    ════════════════════════════════════════ */
 
+function CoverageMap() {
+  return (
+    <div className="relative w-full max-w-md mx-auto">
+      <svg viewBox="0 0 400 450" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+        {/* Background */}
+        <rect width="400" height="450" rx="24" fill="white" />
+
+        {/* NH/MA state line */}
+        <line x1="30" y1="150" x2="370" y2="150" stroke="#c4b5fd" strokeWidth="1" strokeDasharray="6 4" />
+        <text x="50" y="140" fill="#a5a5c0" fontSize="11" fontWeight="600">NEW HAMPSHIRE</text>
+        <text x="50" y="168" fill="#a5a5c0" fontSize="11" fontWeight="600">MASSACHUSETTS</text>
+
+        {/* Coverage circles - overlapping to show connected area */}
+        {/* Southern NH zone */}
+        <circle cx="200" cy="100" r="75" fill="#7c3aed" opacity="0.08" />
+        <circle cx="200" cy="100" r="75" stroke="#7c3aed" strokeWidth="2" opacity="0.2" strokeDasharray="4 3" />
+
+        {/* Greater Boston zone */}
+        <circle cx="250" cy="240" r="90" fill="#7c3aed" opacity="0.08" />
+        <circle cx="250" cy="240" r="90" stroke="#7c3aed" strokeWidth="2" opacity="0.2" strokeDasharray="4 3" />
+
+        {/* Worcester zone */}
+        <circle cx="120" cy="280" r="65" fill="#7c3aed" opacity="0.08" />
+        <circle cx="120" cy="280" r="65" stroke="#7c3aed" strokeWidth="2" opacity="0.2" strokeDasharray="4 3" />
+
+        {/* Main coverage blob connecting all three */}
+        <ellipse cx="200" cy="220" rx="170" ry="170" fill="#7c3aed" opacity="0.05" />
+
+        {/* Location dots + labels - Southern NH */}
+        <circle cx="180" cy="75" r="4" fill="#7c3aed" />
+        <text x="192" y="79" fill="#2d2d3f" fontSize="11" fontWeight="600">Nashua</text>
+        <circle cx="230" cy="95" r="4" fill="#7c3aed" />
+        <text x="242" y="99" fill="#2d2d3f" fontSize="11" fontWeight="600">Salem</text>
+        <circle cx="170" cy="110" r="4" fill="#7c3aed" />
+        <text x="140" y="114" fill="#6b6b8a" fontSize="10">Hudson</text>
+        <circle cx="210" cy="58" r="3" fill="#c4b5fd" />
+        <text x="220" y="62" fill="#6b6b8a" fontSize="10">Pelham</text>
+
+        {/* Location dots + labels - Boston area */}
+        <circle cx="290" cy="220" r="6" fill="#7c3aed" />
+        <text x="302" y="224" fill="#2d2d3f" fontSize="12" fontWeight="700">Boston</text>
+        <circle cx="260" cy="195" r="3" fill="#c4b5fd" />
+        <text x="270" y="199" fill="#6b6b8a" fontSize="10">Cambridge</text>
+        <circle cx="230" cy="235" r="3" fill="#c4b5fd" />
+        <text x="198" y="239" fill="#6b6b8a" fontSize="10">Newton</text>
+        <circle cx="300" cy="260" r="3" fill="#c4b5fd" />
+        <text x="310" y="264" fill="#6b6b8a" fontSize="10">Quincy</text>
+        <circle cx="240" cy="265" r="3" fill="#c4b5fd" />
+        <text x="250" y="269" fill="#6b6b8a" fontSize="10">Brookline</text>
+
+        {/* Location dots + labels - Worcester area */}
+        <circle cx="115" cy="275" r="5" fill="#7c3aed" />
+        <text x="72" y="265" fill="#2d2d3f" fontSize="12" fontWeight="700">Worcester</text>
+        <circle cx="145" cy="300" r="3" fill="#c4b5fd" />
+        <text x="155" y="304" fill="#6b6b8a" fontSize="10">Shrewsbury</text>
+        <circle cx="100" cy="310" r="3" fill="#c4b5fd" />
+        <text x="60" y="314" fill="#6b6b8a" fontSize="10">Auburn</text>
+
+        {/* Legend */}
+        <circle cx="50" cy="400" r="8" fill="#7c3aed" opacity="0.15" stroke="#7c3aed" strokeWidth="1.5" opacity="0.3" />
+        <text x="66" y="404" fill="#6b6b8a" fontSize="11">Coverage Area</text>
+
+        <circle cx="170" cy="400" r="4" fill="#7c3aed" />
+        <text x="182" y="404" fill="#6b6b8a" fontSize="11">Major City</text>
+
+        <circle cx="275" cy="400" r="3" fill="#c4b5fd" />
+        <text x="285" y="404" fill="#6b6b8a" fontSize="11">Town</text>
+      </svg>
+    </div>
+  );
+}
+
 function ServiceArea() {
-  const bostonAreas = [
-    "Boston", "Cambridge", "Somerville", "Brookline", "Newton",
-    "Quincy", "Medford", "Malden", "Waltham", "Watertown",
-    "Arlington", "Belmont", "Dedham", "Milton", "Needham",
-    "Wellesley", "Lexington", "Braintree", "Weymouth", "Revere",
-  ];
-  const nhAreas = [
-    "Hudson, NH", "Salem, NH", "Pelham, NH", "Nashua, NH",
-    "Londonderry, NH", "Windham, NH", "Litchfield, NH", "Merrimack, NH",
+  const regions = [
+    { name: "Greater Boston", areas: "Boston, Cambridge, Somerville, Brookline, Newton, Quincy & surrounding areas" },
+    { name: "Southern New Hampshire", areas: "Nashua, Hudson, Salem, Pelham, Londonderry, Windham & nearby towns" },
+    { name: "Worcester Area", areas: "Worcester, Shrewsbury, Auburn, Holden, Millbury & surrounding communities" },
   ];
 
   return (
     <section id="areas" className="py-20 sm:py-28 bg-lavender-soft">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          <div>
-            <R>
-              <p className="text-purple font-bold text-sm uppercase tracking-widest mb-3">Service Area</p>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground leading-tight">
-                Serving <span className="text-purple">Greater Boston</span> &{" "}
-                <span className="text-purple">Southern NH.</span>
-              </h2>
-              <p className="mt-4 text-muted leading-relaxed">
-                From downtown Boston to Southern New Hampshire, Yara and her
-                team are ready to make your space sparkle. Not sure if we
-                cover your area? Give us a call.
-              </p>
-              <a
-                href={PHONE_HREF}
-                className="group mt-6 inline-flex items-center gap-2 text-purple font-semibold hover:text-purple-dark transition-colors"
-              >
-                <PhoneIcon className="w-4 h-4" />
-                {PHONE}
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+        <R>
+          <div className="text-center mb-14">
+            <p className="text-purple font-bold text-sm uppercase tracking-widest mb-3">Service Area</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground">
+              Three regions. <span className="text-purple">One standard.</span>
+            </h2>
+            <p className="mt-4 text-muted max-w-lg mx-auto">
+              From Southern New Hampshire through Greater Boston and out to
+              Worcester, Yara&apos;s team has you covered.
+            </p>
+          </div>
+        </R>
+
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          {/* Map */}
+          <R>
+            <CoverageMap />
+          </R>
+
+          {/* Regions list */}
+          <div className="space-y-6">
+            {regions.map((region, i) => (
+              <R key={region.name} delay={Math.min(i + 1, 3)}>
+                <div className="bg-white rounded-2xl p-6 shadow-md shadow-purple/5 border border-lavender-light/50">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-3 h-3 rounded-full bg-purple" />
+                    <h3 className="text-lg font-bold text-foreground">{region.name}</h3>
+                  </div>
+                  <p className="text-muted text-sm leading-relaxed pl-6">{region.areas}</p>
+                </div>
+              </R>
+            ))}
+
+            <R delay={4}>
+              <div className="pl-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <p className="text-muted text-sm">Not sure if we cover your area?</p>
+                <a
+                  href={PHONE_HREF}
+                  className="group inline-flex items-center gap-2 text-purple font-semibold hover:text-purple-dark transition-colors text-sm"
+                >
+                  <PhoneIcon className="w-4 h-4" />
+                  Give Yara a call
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
             </R>
           </div>
-
-          <R delay={1}>
-            <div>
-              <p className="text-xs font-bold text-muted uppercase tracking-wider mb-2.5">Greater Boston</p>
-              <div className="flex flex-wrap gap-2 mb-5">
-                {bostonAreas.map((area) => (
-                  <span key={area} className="bg-white border border-lavender-light/60 text-foreground/70 px-3.5 py-1.5 rounded-full text-sm font-medium shadow-sm">
-                    {area}
-                  </span>
-                ))}
-              </div>
-              <p className="text-xs font-bold text-muted uppercase tracking-wider mb-2.5">Southern New Hampshire</p>
-              <div className="flex flex-wrap gap-2">
-                {nhAreas.map((area) => (
-                  <span key={area} className="bg-white border border-lavender-light/60 text-foreground/70 px-3.5 py-1.5 rounded-full text-sm font-medium shadow-sm">
-                    {area}
-                  </span>
-                ))}
-                <span className="bg-purple/10 border border-purple/20 text-purple px-3.5 py-1.5 rounded-full text-sm font-semibold">
-                  & more
-                </span>
-              </div>
-            </div>
-          </R>
         </div>
       </div>
     </section>
@@ -658,7 +725,7 @@ function FAQ() {
     },
     {
       q: "What areas do you serve?",
-      a: "We serve the Greater Boston area and Southern New Hampshire, including Boston, Cambridge, Somerville, Brookline, Newton, Quincy, Hudson NH, Salem NH, Nashua NH, and surrounding communities. Not sure if we cover your area? Give us a call.",
+      a: "We cover three regions: Greater Boston, Southern New Hampshire (Nashua, Hudson, Salem, Pelham area), and the Worcester area. Not sure if we reach you? Give us a call and we'll let you know.",
     },
     {
       q: "Are you licensed and insured?",

@@ -9,9 +9,9 @@ const geistSans = Geist({
 
 export const metadata = {
   metadataBase: new URL("https://yarascleaning.vercel.app"),
-  title: "Yara's Cleaning | Licensed & Insured Home Cleaning | Greater Boston & Southern NH",
+  title: "Yara's Cleaning | Licensed & Insured Home Cleaning | Boston, Worcester & Southern NH",
   description:
-    "Professional, licensed and insured cleaning for homes, apartments, and businesses in Greater Boston and Southern New Hampshire. Weekly, monthly, deep cleans, and move-in/move-out. Call (508) 735-4579 for a free estimate.",
+    "Professional, licensed and insured cleaning for homes, apartments, and businesses in Greater Boston, Worcester, and Southern New Hampshire. Weekly, monthly, deep cleans, and move-in/move-out. Call (508) 735-4579 for a free estimate.",
   keywords: [
     "house cleaning Boston",
     "home cleaning Greater Boston",
@@ -19,6 +19,8 @@ export const metadata = {
     "house cleaning Hudson NH",
     "house cleaning Salem NH",
     "house cleaning Nashua NH",
+    "house cleaning Worcester",
+    "cleaning service Worcester MA",
     "licensed cleaning service",
     "insured cleaning",
     "deep cleaning Boston",
@@ -29,7 +31,7 @@ export const metadata = {
   ],
   openGraph: {
     title: "Yara's Cleaning | Licensed & Insured Home Cleaning",
-    description: "Professional cleaning for homes, apartments, and businesses in Greater Boston & Southern NH. Call (508) 735-4579 for a free estimate.",
+    description: "Professional cleaning for homes, apartments, and businesses in Greater Boston, Worcester & Southern NH. Call (508) 735-4579 for a free estimate.",
     type: "website",
     locale: "en_US",
     url: "https://yarascleaning.vercel.app",
