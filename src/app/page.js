@@ -841,7 +841,7 @@ function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-10 border-b border-white/10">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Image src="/logo.png" alt="Yara's Cleaning" width={200} height={200} className="h-20 w-auto brightness-110 mb-4" />
+            <Image src="/logo.png" alt="Yara's Cleaning" width={200} height={200} className="h-20 w-auto mb-4" />
             <p className="text-white/40 text-sm leading-relaxed max-w-xs">
               Professional cleaning that feels personal. Licensed,
               insured, and ready to make your space shine.
@@ -897,7 +897,7 @@ function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-6 text-center text-xs text-white/20">
-          &copy; {year} Yara&apos;s Cleaning. All rights reserved.
+          &copy; {year}&nbsp;Yara&apos;s Cleaning. All rights reserved.
         </div>
       </div>
     </footer>
