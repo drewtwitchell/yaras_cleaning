@@ -570,7 +570,7 @@ function CoverageMap() {
         <circle cx="250" cy="80" r="4" fill="#7c3aed" />
         <text x="262" y="84" fill="#2d2d3f" fontSize="11" fontWeight="600">Salem</text>
         <circle cx="155" cy="115" r="4" fill="#7c3aed" />
-        <text x="125" y="130" fill="#6b6b8a" fontSize="10">Hudson</text>
+        <text x="118" y="112" fill="#6b6b8a" fontSize="10">Hudson</text>
         <circle cx="210" cy="100" r="3" fill="#c4b5fd" />
         <text x="195" y="90" fill="#6b6b8a" fontSize="10">Pelham</text>
 
