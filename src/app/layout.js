@@ -9,14 +9,16 @@ const geistSans = Geist({
 export const metadata = {
   title: "Yara's Cleaning | Licensed & Insured Home Cleaning",
   description:
-    "Professional, licensed and insured home cleaning services. Weekly and monthly plans available. Contact Yara today for a free in-home estimate.",
+    "Professional, licensed and insured cleaning for homes, apartments, and businesses. Weekly, monthly, deep cleans, and move-in/move-out. Call Yara for a free in-home estimate.",
   keywords: [
     "house cleaning",
     "home cleaning",
     "licensed cleaning service",
     "insured cleaning",
-    "weekly cleaning",
-    "monthly cleaning",
+    "deep cleaning",
+    "move in cleaning",
+    "move out cleaning",
+    "office cleaning",
   ],
 };
 

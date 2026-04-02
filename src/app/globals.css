@@ -1,19 +1,17 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #ffffff;
-  --color-foreground: #1a1a2e;
+  --color-background: #faf9f7;
+  --color-foreground: #1a1a1a;
+  --color-muted: #6b6b6b;
+  --color-faint: #a3a3a3;
   --color-primary: #7c3aed;
-  --color-primary-light: #a78bfa;
   --color-primary-dark: #5b21b6;
   --color-primary-deeper: #3b0764;
   --color-accent: #c084fc;
-  --color-accent-light: #e9d5ff;
-  --color-gold: #f59e0b;
-  --color-gold-light: #fef3c7;
-  --color-rose: #f43f5e;
-  --color-section-alt: #faf5ff;
-  --color-section-dark: #1e1b4b;
+  --color-cream: #f5f0eb;
+  --color-dark: #0f0f0f;
+  --color-gold: #d4a853;
   --font-sans: var(--font-geist-sans);
 }
 
@@ -35,76 +33,48 @@ section[id] {
 /* ─── Scroll reveal ─── */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(32px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-.reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+.reveal-delay-4 { transition-delay: 0.48s; }
 
-/* ─── Animations ─── */
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-14px) rotate(1deg); }
+/* ─── Horizontal rule accent ─── */
+.hr-accent {
+  width: 48px;
+  height: 3px;
+  background: var(--color-primary);
+  border: none;
+  border-radius: 2px;
 }
-@keyframes float-reverse {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(10px) rotate(-1deg); }
-}
-@keyframes pulse-soft {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
-}
+
+/* ─── Marquee ─── */
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-
-.animate-float { animation: float 6s ease-in-out infinite; }
-.animate-float-reverse { animation: float-reverse 5s ease-in-out infinite; }
-.animate-float-slow { animation: float 8s ease-in-out infinite; }
-.animate-pulse-soft { animation: pulse-soft 4s ease-in-out infinite; }
-.animate-marquee { animation: marquee 30s linear infinite; }
-
-/* ─── Curved section divider ─── */
-.curve-divider {
-  position: relative;
-}
-.curve-divider::before {
-  content: '';
-  position: absolute;
-  top: -60px;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: inherit;
-  clip-path: ellipse(55% 100% at 50% 100%);
+.animate-marquee {
+  animation: marquee 40s linear infinite;
 }
 
-/* ─── Bento card styles ─── */
-.bento-card {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.bento-card:hover {
-  transform: translateY(-8px) scale(1.01);
-}
-
-/* ─── Number counter ─── */
-.stat-number {
-  font-variant-numeric: tabular-nums;
-  background: linear-gradient(135deg, #7c3aed, #c084fc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* ─── Text highlight ─── */
+.text-highlight {
+  background: linear-gradient(120deg, rgba(124, 58, 237, 0.12) 0%, rgba(192, 132, 252, 0.12) 100%);
+  padding: 0.05em 0.2em;
+  border-radius: 4px;
 }
 
-/* ─── Marquee pause on hover ─── */
-.marquee-track:hover .animate-marquee {
-  animation-play-state: paused;
+/* ─── Large quote marks ─── */
+.quote-mark {
+  font-family: Georgia, serif;
+  color: var(--color-primary);
+  opacity: 0.15;
+  line-height: 0.8;
 }
