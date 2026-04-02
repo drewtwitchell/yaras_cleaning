@@ -537,11 +537,15 @@ function Quote() {
    ════════════════════════════════════════ */
 
 function ServiceArea() {
-  const areas = [
+  const bostonAreas = [
     "Boston", "Cambridge", "Somerville", "Brookline", "Newton",
     "Quincy", "Medford", "Malden", "Waltham", "Watertown",
     "Arlington", "Belmont", "Dedham", "Milton", "Needham",
     "Wellesley", "Lexington", "Braintree", "Weymouth", "Revere",
+  ];
+  const nhAreas = [
+    "Hudson, NH", "Salem, NH", "Pelham, NH", "Nashua, NH",
+    "Londonderry, NH", "Windham, NH", "Litchfield, NH", "Merrimack, NH",
   ];
 
   return (
@@ -552,13 +556,13 @@ function ServiceArea() {
             <R>
               <p className="text-purple font-bold text-sm uppercase tracking-widest mb-3">Service Area</p>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground leading-tight">
-                Proudly serving the{" "}
-                <span className="text-purple">Greater Boston area.</span>
+                Serving <span className="text-purple">Greater Boston</span> &{" "}
+                <span className="text-purple">Southern NH.</span>
               </h2>
               <p className="mt-4 text-muted leading-relaxed">
-                From Boston to the surrounding suburbs, Yara and her team are
-                ready to make your space sparkle. Not sure if we cover your area?
-                Give us a call.
+                From downtown Boston to Southern New Hampshire, Yara and her
+                team are ready to make your space sparkle. Not sure if we
+                cover your area? Give us a call.
               </p>
               <a
                 href={PHONE_HREF}
@@ -572,18 +576,26 @@ function ServiceArea() {
           </div>
 
           <R delay={1}>
-            <div className="flex flex-wrap gap-2.5">
-              {areas.map((area) => (
-                <span
-                  key={area}
-                  className="bg-white border border-lavender-light/60 text-foreground/70 px-4 py-2 rounded-full text-sm font-medium shadow-sm"
-                >
-                  {area}
+            <div>
+              <p className="text-xs font-bold text-muted uppercase tracking-wider mb-2.5">Greater Boston</p>
+              <div className="flex flex-wrap gap-2 mb-5">
+                {bostonAreas.map((area) => (
+                  <span key={area} className="bg-white border border-lavender-light/60 text-foreground/70 px-3.5 py-1.5 rounded-full text-sm font-medium shadow-sm">
+                    {area}
+                  </span>
+                ))}
+              </div>
+              <p className="text-xs font-bold text-muted uppercase tracking-wider mb-2.5">Southern New Hampshire</p>
+              <div className="flex flex-wrap gap-2">
+                {nhAreas.map((area) => (
+                  <span key={area} className="bg-white border border-lavender-light/60 text-foreground/70 px-3.5 py-1.5 rounded-full text-sm font-medium shadow-sm">
+                    {area}
+                  </span>
+                ))}
+                <span className="bg-purple/10 border border-purple/20 text-purple px-3.5 py-1.5 rounded-full text-sm font-semibold">
+                  & more
                 </span>
-              ))}
-              <span className="bg-purple/10 border border-purple/20 text-purple px-4 py-2 rounded-full text-sm font-semibold">
-                & more
-              </span>
+              </div>
             </div>
           </R>
         </div>
@@ -646,7 +658,7 @@ function FAQ() {
     },
     {
       q: "What areas do you serve?",
-      a: "We serve the Greater Boston area including Boston, Cambridge, Somerville, Brookline, Newton, Quincy, and surrounding communities. Not sure if we cover your area? Give us a call.",
+      a: "We serve the Greater Boston area and Southern New Hampshire, including Boston, Cambridge, Somerville, Brookline, Newton, Quincy, Hudson NH, Salem NH, Nashua NH, and surrounding communities. Not sure if we cover your area? Give us a call.",
     },
     {
       q: "Are you licensed and insured?",
