@@ -566,9 +566,9 @@ function CoverageMap() {
 
         {/* Location dots + labels - Southern NH */}
         <circle cx="175" cy="60" r="4" fill="#7c3aed" />
-        <text x="187" y="64" fill="#2d2d3f" fontSize="11" fontWeight="600">Nashua</text>
+        <text x="187" y="64" fill="#2d2d3f" fontSize="10" fontWeight="600">Nashua</text>
         <circle cx="250" cy="80" r="4" fill="#7c3aed" />
-        <text x="262" y="84" fill="#2d2d3f" fontSize="11" fontWeight="600">Salem</text>
+        <text x="262" y="84" fill="#2d2d3f" fontSize="10" fontWeight="600">Salem</text>
         <circle cx="155" cy="115" r="3" fill="#c4b5fd" />
         <text x="118" y="112" fill="#6b6b8a" fontSize="10">Hudson</text>
         <circle cx="210" cy="100" r="3" fill="#c4b5fd" />
