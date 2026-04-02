@@ -571,8 +571,8 @@ function CoverageMap() {
         <text x="242" y="99" fill="#2d2d3f" fontSize="11" fontWeight="600">Salem</text>
         <circle cx="170" cy="110" r="4" fill="#7c3aed" />
         <text x="140" y="114" fill="#6b6b8a" fontSize="10">Hudson</text>
-        <circle cx="210" cy="58" r="3" fill="#c4b5fd" />
-        <text x="220" y="62" fill="#6b6b8a" fontSize="10">Pelham</text>
+        <circle cx="200" cy="103" r="3" fill="#c4b5fd" />
+        <text x="210" y="107" fill="#6b6b8a" fontSize="10">Pelham</text>
 
         {/* Location dots + labels - Boston area */}
         <circle cx="290" cy="220" r="6" fill="#7c3aed" />
