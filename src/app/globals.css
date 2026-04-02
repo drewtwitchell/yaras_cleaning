@@ -15,7 +15,6 @@
   --color-section-alt: #faf5ff;
   --color-section-dark: #1e1b4b;
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 html {
@@ -26,40 +25,86 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
 section[id] {
   scroll-margin-top: 80px;
 }
 
-/* Animated gradient for hero */
-@keyframes shimmer {
-  0%, 100% { opacity: 0.5; transform: translateX(-10%) rotate(-2deg); }
-  50% { opacity: 0.8; transform: translateX(10%) rotate(2deg); }
+/* ─── Scroll reveal ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-.animate-shimmer {
-  animation: shimmer 8s ease-in-out infinite;
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
 
+/* ─── Animations ─── */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(1deg); }
+}
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(10px) rotate(-1deg); }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-reverse { animation: float-reverse 5s ease-in-out infinite; }
+.animate-float-slow { animation: float 8s ease-in-out infinite; }
+.animate-pulse-soft { animation: pulse-soft 4s ease-in-out infinite; }
+.animate-marquee { animation: marquee 30s linear infinite; }
+
+/* ─── Curved section divider ─── */
+.curve-divider {
+  position: relative;
+}
+.curve-divider::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: inherit;
+  clip-path: ellipse(55% 100% at 50% 100%);
 }
 
-.animate-float-delayed {
-  animation: float 6s ease-in-out 2s infinite;
+/* ─── Bento card styles ─── */
+.bento-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.bento-card:hover {
+  transform: translateY(-8px) scale(1.01);
 }
 
-/* Service card hover lift */
-.service-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* ─── Number counter ─── */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(135deg, #7c3aed, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.service-card:hover {
-  transform: translateY(-6px);
+/* ─── Marquee pause on hover ─── */
+.marquee-track:hover .animate-marquee {
+  animation-play-state: paused;
 }
