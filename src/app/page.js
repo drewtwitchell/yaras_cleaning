@@ -570,7 +570,7 @@ function CoverageMap() {
         <circle cx="230" cy="95" r="4" fill="#7c3aed" />
         <text x="242" y="99" fill="#2d2d3f" fontSize="11" fontWeight="600">Salem</text>
         <circle cx="170" cy="110" r="4" fill="#7c3aed" />
-        <text x="140" y="114" fill="#6b6b8a" fontSize="10">Hudson</text>
+        <text x="182" y="114" fill="#6b6b8a" fontSize="10">Hudson</text>
         <circle cx="200" cy="103" r="3" fill="#c4b5fd" />
         <text x="210" y="107" fill="#6b6b8a" fontSize="10">Pelham</text>
 
@@ -580,7 +580,7 @@ function CoverageMap() {
         <circle cx="260" cy="195" r="3" fill="#c4b5fd" />
         <text x="270" y="199" fill="#6b6b8a" fontSize="10">Cambridge</text>
         <circle cx="230" cy="235" r="3" fill="#c4b5fd" />
-        <text x="198" y="239" fill="#6b6b8a" fontSize="10">Newton</text>
+        <text x="240" y="239" fill="#6b6b8a" fontSize="10">Newton</text>
         <circle cx="300" cy="260" r="3" fill="#c4b5fd" />
         <text x="310" y="264" fill="#6b6b8a" fontSize="10">Quincy</text>
         <circle cx="240" cy="265" r="3" fill="#c4b5fd" />
