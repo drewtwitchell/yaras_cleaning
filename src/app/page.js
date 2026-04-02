@@ -132,6 +132,7 @@ function Header() {
           <a href="#services" className="text-muted hover:text-purple transition-colors">Services</a>
           <a href="#how-it-works" className="text-muted hover:text-purple transition-colors">How It Works</a>
           <a href="#about" className="text-muted hover:text-purple transition-colors">About</a>
+          <a href="#faq" className="text-muted hover:text-purple transition-colors">FAQ</a>
           <a href={PHONE_HREF} className="inline-flex items-center gap-2 bg-purple text-white px-5 py-2.5 rounded-full font-semibold hover:bg-purple-dark shadow-md shadow-purple/20 hover:shadow-lg hover:-translate-y-0.5 transition-all">
             <PhoneIcon className="w-4 h-4" />
             Call Yara
@@ -154,6 +155,7 @@ function Header() {
             { label: "Services", href: "#services" },
             { label: "How It Works", href: "#how-it-works" },
             { label: "About", href: "#about" },
+            { label: "FAQ", href: "#faq" },
           ].map((item) => (
             <a key={item.label} href={item.href} onClick={() => setMenuOpen(false)} className="text-muted hover:text-purple font-medium py-2.5 px-2 rounded-lg hover:bg-lavender-soft transition-all">
               {item.label}
@@ -531,52 +533,160 @@ function Quote() {
 }
 
 /* ════════════════════════════════════════
-   WHAT YOU GET
+   SERVICE AREA
    ════════════════════════════════════════ */
 
-function WhatYouGet() {
-  const items = [
-    "Yara personally walks through your space before any work starts",
-    "Free estimate, no commitment required",
-    "Fixed pricing, no surprise add-ons",
-    "Fully licensed and insured",
-    "Weekly, monthly, or one-time. Your call.",
-    "Houses, apartments, offices, deep cleans, move-in/out",
-    "Same high standard whether it's Yara or her team",
-    "We accept cash, check & Venmo",
+function ServiceArea() {
+  const areas = [
+    "Boston", "Cambridge", "Somerville", "Brookline", "Newton",
+    "Quincy", "Medford", "Malden", "Waltham", "Watertown",
+    "Arlington", "Belmont", "Dedham", "Milton", "Needham",
+    "Wellesley", "Lexington", "Braintree", "Weymouth", "Revere",
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-lavender-soft">
+    <section id="areas" className="py-20 sm:py-28 bg-lavender-soft">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div>
             <R>
-              <p className="text-purple font-bold text-sm uppercase tracking-widest mb-3">The Promise</p>
+              <p className="text-purple font-bold text-sm uppercase tracking-widest mb-3">Service Area</p>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground leading-tight">
-                What you get with{" "}
-                <span className="text-purple">Yara&apos;s Cleaning.</span>
+                Proudly serving the{" "}
+                <span className="text-purple">Greater Boston area.</span>
               </h2>
               <p className="mt-4 text-muted leading-relaxed">
-                No contracts. No gimmicks. Just a team that takes pride
-                in leaving your space spotless.
+                From Boston to the surrounding suburbs, Yara and her team are
+                ready to make your space sparkle. Not sure if we cover your area?
+                Give us a call.
               </p>
+              <a
+                href={PHONE_HREF}
+                className="group mt-6 inline-flex items-center gap-2 text-purple font-semibold hover:text-purple-dark transition-colors"
+              >
+                <PhoneIcon className="w-4 h-4" />
+                {PHONE}
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
             </R>
           </div>
 
-          <div>
-            {items.map((item, i) => (
-              <R key={item} delay={Math.min(Math.floor(i / 2) + 1, 4)}>
-                <div className="flex items-start gap-3 py-3.5 border-b border-lavender/30 last:border-0">
-                  <div className="w-6 h-6 rounded-full bg-purple/10 flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckIcon className="w-3.5 h-3.5 text-purple" />
-                  </div>
-                  <p className="text-foreground">{item}</p>
-                </div>
-              </R>
+          <R delay={1}>
+            <div className="flex flex-wrap gap-2.5">
+              {areas.map((area) => (
+                <span
+                  key={area}
+                  className="bg-white border border-lavender-light/60 text-foreground/70 px-4 py-2 rounded-full text-sm font-medium shadow-sm"
+                >
+                  {area}
+                </span>
+              ))}
+              <span className="bg-purple/10 border border-purple/20 text-purple px-4 py-2 rounded-full text-sm font-semibold">
+                & more
+              </span>
+            </div>
+          </R>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ════════════════════════════════════════
+   FAQ
+   ════════════════════════════════════════ */
+
+function FAQItem({ q, a }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b border-lavender/30">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between py-5 text-left group"
+      >
+        <span className="text-foreground font-semibold pr-4 group-hover:text-purple transition-colors">{q}</span>
+        <span className={`shrink-0 w-8 h-8 rounded-full bg-lavender-soft flex items-center justify-center transition-transform ${open ? "rotate-45" : ""}`}>
+          <svg className="w-4 h-4 text-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
+        </span>
+      </button>
+      {open && (
+        <div className="pb-5 text-muted leading-relaxed pr-12">
+          {a}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function FAQ() {
+  const faqs = [
+    {
+      q: "Do I need to be home during the cleaning?",
+      a: "Nope! Many of our clients leave a key or provide entry instructions. You're welcome to be home if you prefer, but it's not required.",
+    },
+    {
+      q: "Do you bring your own cleaning supplies?",
+      a: "Yes, we bring everything we need. If you have specific products you'd like us to use or any allergies, just let us know and we'll accommodate.",
+    },
+    {
+      q: "How long does a cleaning usually take?",
+      a: "It depends on the size of your space and the type of cleaning. A standard home cleaning typically takes 2-4 hours. Yara will give you a time estimate during the walk-through.",
+    },
+    {
+      q: "What forms of payment do you accept?",
+      a: "We accept cash, check, and Venmo. Payment is due on the day of service.",
+    },
+    {
+      q: "How does pricing work?",
+      a: "Every space is different, so Yara does a free in-person walk-through before giving you a price. No ballpark guesses over the phone. You'll know the exact cost before any work starts.",
+    },
+    {
+      q: "Can I change my cleaning schedule?",
+      a: "Of course. Life happens. Just give us a heads up and we'll adjust your schedule. No penalties, no hassle.",
+    },
+    {
+      q: "What areas do you serve?",
+      a: "We serve the Greater Boston area including Boston, Cambridge, Somerville, Brookline, Newton, Quincy, and surrounding communities. Not sure if we cover your area? Give us a call.",
+    },
+    {
+      q: "Are you licensed and insured?",
+      a: "Yes, fully. Yara's Cleaning carries complete liability insurance and all required business licenses. Your home and belongings are protected.",
+    },
+  ];
+
+  return (
+    <section id="faq" className="py-20 sm:py-28 bg-white">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <R>
+          <div className="text-center mb-12">
+            <p className="text-purple font-bold text-sm uppercase tracking-widest mb-3">FAQ</p>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground">
+              Got questions? <span className="text-purple">We&apos;ve got answers.</span>
+            </h2>
+          </div>
+        </R>
+
+        <R delay={1}>
+          <div className="border-t border-lavender/30">
+            {faqs.map((faq) => (
+              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
             ))}
           </div>
-        </div>
+        </R>
+
+        <R delay={2}>
+          <div className="mt-10 text-center">
+            <p className="text-muted mb-4">Still have questions?</p>
+            <a
+              href={PHONE_HREF}
+              className="group inline-flex items-center gap-2 bg-purple text-white px-6 py-3 rounded-full font-semibold shadow-md shadow-purple/20 hover:bg-purple-dark hover:-translate-y-0.5 transition-all"
+            >
+              <PhoneIcon className="w-4 h-4" />
+              Call Yara
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+        </R>
       </div>
     </section>
   );
@@ -678,6 +788,8 @@ function Footer() {
               <li><a href="#services" className="hover:text-white transition-colors">Our Services</a></li>
               <li><a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a></li>
               <li><a href="#about" className="hover:text-white transition-colors">About Yara</a></li>
+              <li><a href="#areas" className="hover:text-white transition-colors">Service Area</a></li>
+              <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
             </ul>
           </div>
 
@@ -714,6 +826,32 @@ function Footer() {
 }
 
 /* ════════════════════════════════════════
+   STICKY MOBILE CALL BUTTON
+   ════════════════════════════════════════ */
+
+function StickyCallButton() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const fn = () => setVisible(window.scrollY > 400);
+    window.addEventListener("scroll", fn, { passive: true });
+    return () => window.removeEventListener("scroll", fn);
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <a
+      href={PHONE_HREF}
+      className="md:hidden fixed bottom-5 right-5 z-50 flex items-center gap-2 bg-purple text-white pl-4 pr-5 py-3.5 rounded-full font-bold shadow-xl shadow-purple/30 hover:bg-purple-dark transition-all active:scale-95"
+    >
+      <PhoneIcon className="w-5 h-5" />
+      Call Now
+    </a>
+  );
+}
+
+/* ════════════════════════════════════════
    PAGE
    ════════════════════════════════════════ */
 
@@ -728,10 +866,12 @@ export default function Home() {
         <HowItWorks />
         <About />
         <Quote />
-        <WhatYouGet />
+        <ServiceArea />
+        <FAQ />
         <CTA />
       </main>
       <Footer />
+      <StickyCallButton />
     </>
   );
 }
