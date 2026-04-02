@@ -289,12 +289,12 @@ function TrustStrip() {
 
 function Services() {
   const services = [
-    { icon: HomeIcon, title: "Houses", desc: "Full home cleaning, top to bottom. Kitchens, bathrooms, bedrooms, the works.", gradient: "from-purple to-purple-dark" },
-    { icon: BuildingIcon, title: "Apartments", desc: "Studios to multi-bedrooms. Same thorough clean, sized to your place.", gradient: "from-lavender to-purple" },
-    { icon: BriefcaseIcon, title: "Offices", desc: "Keep your workspace looking sharp for your team and your clients.", gradient: "from-purple-dark to-purple-deep" },
-    { icon: TargetIcon, title: "Deep Cleans", desc: "The serious scrub. Inside cabinets, behind appliances, under everything.", gradient: "from-purple to-lavender" },
-    { icon: BoxIcon, title: "Move-In", desc: "Moving somewhere new? Yara gets it spotless before you unpack.", gradient: "from-lavender to-bubble" },
-    { icon: TruckIcon, title: "Move-Out", desc: "Get that deposit back. We leave it better than you found it.", gradient: "from-purple-deep to-purple" },
+    { icon: HomeIcon, title: "Houses", desc: "Full home cleaning, top to bottom. Kitchens, bathrooms, bedrooms, the works.", gradient: "from-purple to-purple-dark", cta: "Book a home cleaning" },
+    { icon: BuildingIcon, title: "Apartments", desc: "Studios to multi-bedrooms. Same thorough clean, sized to your place.", gradient: "from-lavender to-purple", cta: "Get your apartment sparkling" },
+    { icon: BriefcaseIcon, title: "Offices", desc: "Keep your workspace looking sharp for your team and your clients.", gradient: "from-purple-dark to-purple-deep", cta: "Clean up your workspace" },
+    { icon: TargetIcon, title: "Deep Cleans", desc: "The serious scrub. Inside cabinets, behind appliances, under everything.", gradient: "from-purple to-lavender", cta: "Schedule a deep clean" },
+    { icon: BoxIcon, title: "Move-In", desc: "Moving somewhere new? Yara gets it spotless before you unpack.", gradient: "from-lavender to-bubble", cta: "Start fresh in your new place" },
+    { icon: TruckIcon, title: "Move-Out", desc: "Get that deposit back. We leave it better than you found it.", gradient: "from-purple-deep to-purple", cta: "Get your deposit back" },
   ];
 
   return (
@@ -339,8 +339,7 @@ function Services() {
                       {s.desc}
                     </p>
                     <div className="mt-4 flex items-center gap-2 text-purple group-hover:text-white/90 text-sm font-semibold transition-colors">
-                      <PhoneIcon className="w-3.5 h-3.5" />
-                      Call for a quote
+                      {s.cta}
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
@@ -433,29 +432,15 @@ function About() {
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Logo showcase */}
           <R>
-            <div className="relative max-w-md mx-auto lg:mx-0">
-              <div className="rounded-3xl bg-gradient-to-br from-white via-lavender-light/50 to-lavender-soft border border-lavender/30 shadow-xl p-8 sm:p-12 flex items-center justify-center">
-                <Image
-                  src="/logo.png"
-                  alt="Yara's Cleaning"
-                  width={500}
-                  height={500}
-                  className="w-full h-auto"
-                />
-              </div>
-
-              {/* Floating badge */}
-              <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 bg-white rounded-xl shadow-lg border border-lavender-light p-3 sm:p-4">
-                <div className="flex items-center gap-2.5">
-                  <ShieldIcon className="w-5 h-5 text-purple" />
-                  <div>
-                    <p className="font-bold text-foreground text-sm leading-tight">Licensed</p>
-                    <p className="text-xs text-muted leading-tight">& Insured</p>
-                  </div>
-                </div>
-              </div>
+            <div className="relative max-w-lg mx-auto lg:mx-0 flex items-center justify-center">
+              <Image
+                src="/logo.png"
+                alt="Yara's Cleaning"
+                width={600}
+                height={600}
+                className="w-full max-w-[420px] h-auto drop-shadow-xl"
+              />
             </div>
           </R>
 
@@ -662,21 +647,66 @@ function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="py-10 sm:py-12 bg-white border-t border-lavender-light">
+    <footer className="bg-purple-deep text-white pt-16 pb-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <Image src="/logo.png" alt="Yara's Cleaning" width={140} height={140} className="h-12 w-auto" />
-            <span className="text-faint text-sm">&copy; {year}</span>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-10 border-b border-white/10">
+          {/* Brand */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <Image src="/logo.png" alt="Yara's Cleaning" width={200} height={200} className="h-20 w-auto brightness-110 mb-4" />
+            <p className="text-white/40 text-sm leading-relaxed max-w-xs">
+              Professional cleaning that feels personal. Licensed,
+              insured, and ready to make your space shine.
+            </p>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm">
-            <span className="text-faint flex items-center gap-1.5">
-              <ShieldIcon className="w-3.5 h-3.5 text-purple" />
-              Licensed & Insured
-            </span>
-            <span className="text-faint">Cash, Check & Venmo</span>
-            <a href={PHONE_HREF} className="text-purple font-semibold hover:text-purple-dark transition-colors">{PHONE}</a>
+
+          {/* Services */}
+          <div>
+            <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-4">Services</h4>
+            <ul className="space-y-2.5 text-white/40 text-sm">
+              <li><a href="#services" className="hover:text-white transition-colors">House Cleaning</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Apartment Cleaning</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Office Cleaning</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Deep Cleans</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Move-In / Move-Out</a></li>
+            </ul>
           </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-4">Quick Links</h4>
+            <ul className="space-y-2.5 text-white/40 text-sm">
+              <li><a href="#services" className="hover:text-white transition-colors">Our Services</a></li>
+              <li><a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a></li>
+              <li><a href="#about" className="hover:text-white transition-colors">About Yara</a></li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-4">Get In Touch</h4>
+            <a
+              href={PHONE_HREF}
+              className="inline-flex items-center gap-2 text-lavender hover:text-white transition-colors font-bold text-lg mb-4"
+            >
+              <PhoneIcon className="w-5 h-5" />
+              {PHONE}
+            </a>
+            <div className="space-y-2 text-white/40 text-sm">
+              <div className="flex items-center gap-2">
+                <ShieldIcon className="w-4 h-4 text-lavender/50" />
+                Licensed & Insured
+              </div>
+              <div className="flex items-center gap-2">
+                <DollarIcon className="w-4 h-4 text-lavender/50" />
+                Cash, Check & Venmo
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="pt-6 text-center text-xs text-white/20">
+          &copy; {year} Yara&apos;s Cleaning. All rights reserved.
         </div>
       </div>
     </footer>
