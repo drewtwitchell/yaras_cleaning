@@ -17,6 +17,7 @@
   --color-sky: #e8f2fa;
   --color-sky-light: #f3f8fc;
   --color-gold: #f5a623;
+  --color-cream: #fefcf8;
   --color-bubble: #d4eef8;
   --color-sparkle: #a8d8ea;
   --font-sans: var(--font-geist-sans);
@@ -41,35 +42,24 @@ section[id] { scroll-margin-top: 80px; }
               transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+.reveal-delay-4 { transition-delay: 0.48s; }
 
 /* ── Bubbles ── */
 @keyframes bubble-float {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.7;
-  }
-  80% {
-    opacity: 0.3;
-  }
-  100% {
-    transform: translateY(-120px) scale(0.4);
-    opacity: 0;
-  }
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  10% { opacity: 0.5; }
+  80% { opacity: 0.2; }
+  100% { transform: translateY(-120px) scale(0.4); opacity: 0; }
 }
 
 .bubble {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(72,184,160,0.2));
-  border: 1px solid rgba(72,184,160,0.2);
-  box-shadow: inset 0 -2px 4px rgba(44,95,138,0.05), 0 1px 3px rgba(72,184,160,0.1);
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(72,184,160,0.15));
+  border: 1px solid rgba(72,184,160,0.15);
   pointer-events: none;
 }
 
@@ -90,12 +80,6 @@ section[id] { scroll-margin-top: 80px; }
 .twinkle-delay-1 { animation-delay: 1s; }
 .twinkle-delay-2 { animation-delay: 2s; }
 
-/* ── Leaf sway ── */
-@keyframes leaf-sway {
-  0%, 100% { transform: rotate(-3deg); }
-  50% { transform: rotate(3deg); }
-}
-
 /* ── Cards ── */
 .service-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -104,9 +88,10 @@ section[id] { scroll-margin-top: 80px; }
   transform: translateY(-8px);
 }
 
-/* ── Before/After slider ── */
-.ba-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 1rem;
+/* ── Comparison checkmark animation ── */
+@keyframes check-pop {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
+.check-pop { animation: check-pop 0.4s ease-out forwards; }
