@@ -132,7 +132,7 @@ function Header() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-18 sm:h-20">
         <a href="#" className="shrink-0">
           <Image
-            src="/logo-new.png"
+            src="/logo.png"
             alt="Yara's Cleaning - Spotless Homes, Caring Service"
             width={847}
             height={533}
@@ -539,7 +539,7 @@ function About() {
           <R className="lg:col-span-2">
             <div className="bg-white rounded-2xl p-8 border border-border flex items-center justify-center">
               <Image
-                src="/logo-new.png"
+                src="/logo.png"
                 alt="Yara's Cleaning"
                 width={847}
                 height={533}
@@ -818,7 +818,7 @@ function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Image src="/logo-new.png" alt="Yara's Cleaning" width={847} height={533} className="h-14 w-auto mb-4" />
+            <Image src="/logo.png" alt="Yara's Cleaning" width={847} height={533} className="h-14 w-auto mb-4" />
             <p className="text-muted text-sm leading-relaxed max-w-xs">
               Spotless homes, caring service. Licensed, insured, and serving families across MA & NH.
             </p>
