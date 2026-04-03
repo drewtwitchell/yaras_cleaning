@@ -265,7 +265,7 @@ function Hero() {
 
 function Services() {
   const services = [
-    { icon: HomeIcon, title: "House Cleaning", desc: "Top to bottom — kitchens, bathrooms, bedrooms, living spaces. The full job." },
+    { icon: HomeIcon, title: "House Cleaning", desc: "Top to bottom. Kitchens, bathrooms, bedrooms, living spaces. The full job." },
     { icon: BuildingIcon, title: "Apartments", desc: "Studio or three-bedroom, same thorough clean sized to your space." },
     { icon: BriefcaseIcon, title: "Office Cleaning", desc: "A clean workspace your team and clients will notice." },
     { icon: TargetIcon, title: "Deep Cleans", desc: "Inside cabinets, behind appliances, under everything. The reset button." },
@@ -318,8 +318,8 @@ function WhyYaras() {
   const rows = [
     { label: "In-person walk-through before every quote", yaras: true, others: false },
     { label: "Same team cleans your home every visit", yaras: true, others: false },
-    { label: "Text the owner directly — no call center", yaras: true, others: false },
-    { label: "Flat pricing — no hidden fees or surprises", yaras: true, others: false },
+    { label: "Text the owner directly, not a call center", yaras: true, others: false },
+    { label: "Flat pricing with no hidden fees or surprises", yaras: true, others: false },
     { label: "Satisfaction guarantee on every clean", yaras: true, others: false },
   ];
 
@@ -389,7 +389,7 @@ function Guarantee() {
               <h3 className="text-2xl font-bold mb-3">Yara&apos;s Sparkle Promise</h3>
               <p className="text-white/80 leading-relaxed max-w-xl">
                 If something isn&apos;t right, tell Yara. She&apos;ll come back and make
-                it right — no awkward conversations, no runaround. Your home should
+                it right. No awkward conversations, no runaround. Your home should
                 feel like yours again when we leave.
               </p>
               <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70">
@@ -428,7 +428,7 @@ function Reviews() {
     {
       name: "Mike D.",
       location: "Nashua, NH",
-      text: "Finally found a cleaning service I can trust. Yara does a walkthrough before giving a price — no surprises. My house has never been cleaner.",
+      text: "Finally found a cleaning service I can trust. Yara does a walkthrough before giving a price. No surprises. My house has never been cleaner.",
     },
     {
       name: "Jessica R.",
@@ -438,7 +438,7 @@ function Reviews() {
     {
       name: "Tom & Linda K.",
       location: "Hudson, NH",
-      text: "We've tried other cleaning services and none compare. Yara's team catches every detail — baseboards, corners, behind furniture. Our home feels fresh every time.",
+      text: "We've tried other cleaning services and none compare. Yara's team catches every detail. Baseboards, corners, behind furniture. Our home feels fresh every time.",
     },
   ];
 
@@ -516,12 +516,12 @@ function About() {
                 <p>
                   Yara started this business because she believes you should know
                   and trust the people who walk into your home. Not a random crew
-                  from an app — a real team, led by someone who cares about every
+                  from an app. A real team, led by someone who cares about every
                   baseboard, every corner, every spot behind the door that other
                   services walk right past.
                 </p>
                 <p>
-                  She personally visits every new home before quoting a price — not
+                  She personally visits every new home before quoting a price. Not
                   because she has to, but because every home is different. A phone
                   estimate isn&apos;t fair to you.
                 </p>
@@ -530,7 +530,7 @@ function About() {
 
             <R delay={2}>
               <a href={SMS_HREF} className="mt-6 inline-flex items-center gap-2 text-teal font-semibold text-sm hover:text-teal-dark transition-colors">
-                Get to know Yara — text us
+                Get to know Yara, text us
                 <ArrowRight className="w-4 h-4" />
               </a>
             </R>
