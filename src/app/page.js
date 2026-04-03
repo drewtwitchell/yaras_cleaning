@@ -279,20 +279,20 @@ function Services() {
           </div>
         </R>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border">
-          {services.map((s, i) => {
-            const Icon = s.icon;
-            return (
-              <R key={s.title} delay={Math.min(i + 1, 4)}>
-                <div className="bg-white p-6 sm:p-8 hover:bg-surface transition-colors">
+        <R delay={1}>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+            {services.map((s) => {
+              const Icon = s.icon;
+              return (
+                <div key={s.title} className="bg-white p-6 sm:p-8 hover:bg-surface transition-colors">
                   <Icon className="w-6 h-6 text-blue mb-4" />
                   <h3 className="text-lg font-semibold text-foreground mb-2">{s.title}</h3>
                   <p className="text-muted text-sm leading-relaxed">{s.desc}</p>
                 </div>
-              </R>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        </R>
 
         <R delay={4}>
           <div className="mt-8 text-center">
