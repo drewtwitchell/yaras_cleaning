@@ -195,19 +195,23 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="pt-32 sm:pt-44 pb-20 sm:pb-28 bg-surface">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section className="pt-32 sm:pt-44 pb-20 sm:pb-28 bg-gradient-to-br from-blue-dark via-blue to-teal-dark relative overflow-hidden">
+      {/* Subtle decorative circles */}
+      <div className="absolute top-20 right-[10%] w-64 h-64 bg-teal/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 left-[5%] w-48 h-48 bg-white/5 rounded-full blur-2xl" />
+
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <div className="max-w-2xl">
           <R>
-            <p className="text-teal font-semibold text-sm mb-4">Professional House Cleaning in MA & NH</p>
+            <p className="text-teal-light font-semibold text-sm mb-4 tracking-wide">Professional House Cleaning in MA & NH</p>
           </R>
           <R delay={1}>
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.15] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.15] tracking-tight">
               Your home deserves someone who actually cares.
             </h1>
           </R>
           <R delay={2}>
-            <p className="mt-5 text-lg text-muted leading-relaxed max-w-xl">
+            <p className="mt-5 text-lg text-white/70 leading-relaxed max-w-xl">
               Yara walks through your space, gives you an honest price, and
               her team cleans it like their own. Free estimates, no surprises,
               no contracts.
@@ -222,14 +226,14 @@ function Hero() {
                 <MessageIcon className="w-4 h-4" />
                 Text Us for a Free Estimate
               </a>
-              <a href={PHONE_HREF} className="inline-flex items-center gap-2 bg-white text-foreground px-6 py-3.5 rounded-lg text-sm font-semibold border border-border hover:border-blue/30 transition-colors">
-                <PhoneIcon className="w-4 h-4 text-blue" />
+              <a href={PHONE_HREF} className="inline-flex items-center gap-2 bg-white/10 text-white px-6 py-3.5 rounded-lg text-sm font-semibold border border-white/20 hover:bg-white/20 transition-colors">
+                <PhoneIcon className="w-4 h-4" />
                 {PHONE}
               </a>
             </div>
           </R>
           <R delay={4}>
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted">
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/50">
               <span className="flex items-center gap-1.5">
                 <div className="flex">{[1,2,3,4,5].map(i => <StarIcon key={i} className="w-3.5 h-3.5 text-gold" />)}</div>
                 5-Star Rated
@@ -265,7 +269,7 @@ function Services() {
   ];
 
   return (
-    <section id="services" className="py-20 sm:py-28">
+    <section id="services" className="py-20 sm:py-28 bg-surface">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
           <div className="max-w-xl mb-12">
@@ -280,12 +284,14 @@ function Services() {
         </R>
 
         <R delay={1}>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {services.map((s) => {
               const Icon = s.icon;
               return (
-                <div key={s.title} className="bg-white p-6 sm:p-8 hover:bg-surface transition-colors">
-                  <Icon className="w-6 h-6 text-blue mb-4" />
+                <div key={s.title} className="bg-white rounded-xl p-6 sm:p-7 border border-border-light hover:border-teal/30 hover:shadow-md transition-all">
+                  <div className="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-teal" />
+                  </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">{s.title}</h3>
                   <p className="text-muted text-sm leading-relaxed">{s.desc}</p>
                 </div>
@@ -324,7 +330,7 @@ function WhyYaras() {
   ];
 
   return (
-    <section id="why-yaras" className="py-20 sm:py-28 bg-surface">
+    <section id="why-yaras" className="py-20 sm:py-28 bg-surface-warm">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <R>
           <div className="text-center mb-12">
@@ -443,7 +449,7 @@ function Reviews() {
   ];
 
   return (
-    <section id="reviews" className="py-20 sm:py-28 bg-surface">
+    <section id="reviews" className="py-20 sm:py-28 bg-surface-blue">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
           <div className="max-w-xl mb-12">
@@ -457,7 +463,7 @@ function Reviews() {
         <div className="grid sm:grid-cols-2 gap-5">
           {reviews.map((review, i) => (
             <R key={review.name} delay={Math.min(i + 1, 4)}>
-              <div className="bg-white rounded-xl p-6 sm:p-8 border border-border">
+              <div className="bg-white rounded-xl p-6 sm:p-8 border border-border-light border-l-4 border-l-teal/60">
                 <div className="flex gap-0.5 mb-4">
                   {[1,2,3,4,5].map(s => <StarIcon key={s} className="w-4 h-4 text-gold" />)}
                 </div>
@@ -465,7 +471,7 @@ function Reviews() {
                   &ldquo;{review.text}&rdquo;
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-blue text-white flex items-center justify-center text-sm font-semibold">
+                  <div className="w-9 h-9 rounded-full bg-teal text-white flex items-center justify-center text-sm font-semibold">
                     {review.name.charAt(0)}
                   </div>
                   <div>
@@ -505,15 +511,17 @@ function HowItWorks() {
           </div>
         </R>
 
-        <div className="grid sm:grid-cols-3 gap-8 sm:gap-12">
+        <div className="grid sm:grid-cols-3 gap-6">
           {steps.map((step, i) => {
             const Icon = step.icon;
+            const colors = ["border-teal bg-teal/5", "border-blue bg-blue/5", "border-warm bg-warm/5"];
+            const iconColors = ["bg-teal/10 text-teal", "bg-blue/10 text-blue", "bg-warm/10 text-warm"];
             return (
               <R key={step.num} delay={Math.min(i + 1, 3)}>
-                <div>
-                  <span className="text-4xl font-bold text-border-light">{step.num}</span>
-                  <div className="mt-4 w-10 h-10 rounded-lg bg-teal-light flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-teal-dark" />
+                <div className={`border-l-4 ${colors[i]} rounded-r-xl p-6`}>
+                  <span className="text-3xl font-bold text-foreground/10">{step.num}</span>
+                  <div className={`mt-3 w-10 h-10 rounded-lg ${iconColors[i]} flex items-center justify-center mb-4`}>
+                    <Icon className="w-5 h-5" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
                   <p className="text-muted text-sm leading-relaxed">{step.desc}</p>
@@ -533,11 +541,11 @@ function HowItWorks() {
 
 function About() {
   return (
-    <section id="about" className="py-20 sm:py-28 bg-surface">
+    <section id="about" className="py-20 sm:py-28 bg-surface-warm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
           <R className="lg:col-span-2">
-            <div className="bg-white rounded-2xl p-8 border border-border flex items-center justify-center">
+            <div className="bg-white rounded-2xl p-8 border border-border-light border-t-4 border-t-teal flex items-center justify-center">
               <Image
                 src="/logo.png"
                 alt="Yara's Cleaning"
@@ -662,7 +670,7 @@ function ServiceArea() {
   ];
 
   return (
-    <section id="areas" className="py-20 sm:py-28">
+    <section id="areas" className="py-20 sm:py-28 bg-surface">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
           <div className="max-w-xl mb-12">
@@ -681,7 +689,7 @@ function ServiceArea() {
           <div className="space-y-4">
             {regions.map((region, i) => (
               <R key={region.name} delay={Math.min(i + 1, 3)}>
-                <div className="bg-surface rounded-xl p-5 border border-border-light">
+                <div className="bg-white rounded-xl p-5 border border-border-light border-l-4 border-l-teal">
                   <h3 className="font-semibold text-foreground mb-1">{region.name}</h3>
                   <p className="text-muted text-sm">{region.areas}</p>
                 </div>
@@ -743,7 +751,7 @@ function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-20 sm:py-28 bg-surface">
+    <section id="faq" className="py-20 sm:py-28">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <R>
           <div className="max-w-xl mb-12">
@@ -813,55 +821,55 @@ function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border">
+    <footer className="bg-blue-dark text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Image src="/logo.png" alt="Yara's Cleaning" width={847} height={533} className="h-14 w-auto mb-4" />
-            <p className="text-muted text-sm leading-relaxed max-w-xs">
+            <Image src="/logo.png" alt="Yara's Cleaning" width={847} height={533} className="h-14 w-auto mb-4 brightness-0 invert" />
+            <p className="text-white/50 text-sm leading-relaxed max-w-xs">
               Spotless homes, caring service. Licensed, insured, and serving families across MA & NH.
             </p>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold text-foreground text-sm mb-4">Services</h4>
-            <ul className="space-y-2.5 text-muted text-sm">
-              <li><a href="#services" className="hover:text-foreground transition-colors">House Cleaning</a></li>
-              <li><a href="#services" className="hover:text-foreground transition-colors">Apartment Cleaning</a></li>
-              <li><a href="#services" className="hover:text-foreground transition-colors">Office Cleaning</a></li>
-              <li><a href="#services" className="hover:text-foreground transition-colors">Deep Cleans</a></li>
-              <li><a href="#services" className="hover:text-foreground transition-colors">Move-In / Move-Out</a></li>
+            <h4 className="font-semibold text-white text-sm mb-4">Services</h4>
+            <ul className="space-y-2.5 text-white/50 text-sm">
+              <li><a href="#services" className="hover:text-white transition-colors">House Cleaning</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Apartment Cleaning</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Office Cleaning</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Deep Cleans</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Move-In / Move-Out</a></li>
             </ul>
           </div>
 
           {/* Links */}
           <div>
-            <h4 className="font-semibold text-foreground text-sm mb-4">Company</h4>
-            <ul className="space-y-2.5 text-muted text-sm">
-              <li><a href="#why-yaras" className="hover:text-foreground transition-colors">Why Yara&apos;s</a></li>
-              <li><a href="#reviews" className="hover:text-foreground transition-colors">Reviews</a></li>
-              <li><a href="#about" className="hover:text-foreground transition-colors">About Yara</a></li>
-              <li><a href="#areas" className="hover:text-foreground transition-colors">Service Area</a></li>
-              <li><a href="#faq" className="hover:text-foreground transition-colors">FAQ</a></li>
+            <h4 className="font-semibold text-white text-sm mb-4">Company</h4>
+            <ul className="space-y-2.5 text-white/50 text-sm">
+              <li><a href="#why-yaras" className="hover:text-white transition-colors">Why Yara&apos;s</a></li>
+              <li><a href="#reviews" className="hover:text-white transition-colors">Reviews</a></li>
+              <li><a href="#about" className="hover:text-white transition-colors">About Yara</a></li>
+              <li><a href="#areas" className="hover:text-white transition-colors">Service Area</a></li>
+              <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold text-foreground text-sm mb-4">Contact</h4>
+            <h4 className="font-semibold text-white text-sm mb-4">Contact</h4>
             <div className="space-y-3">
-              <a href={SMS_HREF} className="flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors">
-                <MessageIcon className="w-4 h-4 text-teal" />
+              <a href={SMS_HREF} className="flex items-center gap-2 text-sm text-teal hover:text-white transition-colors font-medium">
+                <MessageIcon className="w-4 h-4" />
                 Text Us
               </a>
-              <a href={PHONE_HREF} className="flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors">
-                <PhoneIcon className="w-4 h-4 text-teal" />
+              <a href={PHONE_HREF} className="flex items-center gap-2 text-sm text-teal hover:text-white transition-colors font-medium">
+                <PhoneIcon className="w-4 h-4" />
                 {PHONE}
               </a>
             </div>
-            <div className="mt-4 space-y-2 text-xs text-faint">
+            <div className="mt-4 space-y-2 text-xs text-white/30">
               <div className="flex items-center gap-1.5">
                 <ShieldIcon className="w-3 h-3" />
                 Licensed & Insured
@@ -874,7 +882,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-border-light text-center text-xs text-faint">
+        <div className="mt-10 pt-6 border-t border-white/10 text-center text-xs text-white/20">
           &copy; {year} Yara&apos;s Cleaning. All rights reserved.
         </div>
       </div>

@@ -13,7 +13,9 @@
   --color-teal: #48b8a0;
   --color-teal-dark: #3a9a86;
   --color-teal-light: #edf8f5;
-  --color-surface: #f9fafb;
+  --color-surface: #f0f7f5;
+  --color-surface-warm: #fdf8f4;
+  --color-surface-blue: #eef4fa;
   --color-gold: #f59e0b;
   --color-warm: #c8956c;
   --font-sans: var(--font-geist-sans);
