@@ -269,7 +269,7 @@ function Services() {
   ];
 
   return (
-    <section id="services" className="py-20 sm:py-28 bg-surface">
+    <section id="services" className="py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
           <div className="max-w-xl mb-12">
@@ -300,14 +300,6 @@ function Services() {
           </div>
         </R>
 
-        <R delay={4}>
-          <div className="mt-8 text-center">
-            <a href={SMS_HREF} className="inline-flex items-center gap-2 text-teal font-semibold text-sm hover:text-teal-dark transition-colors">
-              Text us to book any service
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-        </R>
       </div>
     </section>
   );
@@ -321,16 +313,13 @@ function WhyYaras() {
   const rows = [
     { label: "In-person walk-through before every quote", yaras: true, others: false },
     { label: "Same team cleans your home every visit", yaras: true, others: false },
-    { label: "Owner personally oversees quality", yaras: true, others: false },
-    { label: "Flat, honest pricing — no hidden fees", yaras: true, others: false },
-    { label: "Licensed & fully insured", yaras: true, others: "Varies" },
     { label: "Text the owner directly — no call center", yaras: true, others: false },
-    { label: "Flexible scheduling, no contracts", yaras: true, others: false },
+    { label: "Flat pricing — no hidden fees or surprises", yaras: true, others: false },
     { label: "Satisfaction guarantee on every clean", yaras: true, others: false },
   ];
 
   return (
-    <section id="why-yaras" className="py-20 sm:py-28 bg-surface-warm">
+    <section id="why-yaras" className="py-20 sm:py-28 bg-surface">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <R>
           <div className="text-center mb-12">
@@ -449,7 +438,7 @@ function Reviews() {
   ];
 
   return (
-    <section id="reviews" className="py-20 sm:py-28 bg-surface-blue">
+    <section id="reviews" className="py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
           <div className="max-w-xl mb-12">
@@ -463,7 +452,7 @@ function Reviews() {
         <div className="grid sm:grid-cols-2 gap-5">
           {reviews.map((review, i) => (
             <R key={review.name} delay={Math.min(i + 1, 4)}>
-              <div className="bg-white rounded-xl p-6 sm:p-8 border border-border-light border-l-4 border-l-teal/60">
+              <div className="bg-surface rounded-xl p-6 sm:p-8">
                 <div className="flex gap-0.5 mb-4">
                   {[1,2,3,4,5].map(s => <StarIcon key={s} className="w-4 h-4 text-gold" />)}
                 </div>
@@ -500,7 +489,7 @@ function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="py-20 sm:py-28">
+    <section id="how-it-works" className="py-20 sm:py-28 bg-surface">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
           <div className="max-w-xl mb-12">
@@ -514,14 +503,12 @@ function HowItWorks() {
         <div className="grid sm:grid-cols-3 gap-6">
           {steps.map((step, i) => {
             const Icon = step.icon;
-            const colors = ["border-teal bg-teal/5", "border-blue bg-blue/5", "border-warm bg-warm/5"];
-            const iconColors = ["bg-teal/10 text-teal", "bg-blue/10 text-blue", "bg-warm/10 text-warm"];
             return (
               <R key={step.num} delay={Math.min(i + 1, 3)}>
-                <div className={`border-l-4 ${colors[i]} rounded-r-xl p-6`}>
-                  <span className="text-3xl font-bold text-foreground/10">{step.num}</span>
-                  <div className={`mt-3 w-10 h-10 rounded-lg ${iconColors[i]} flex items-center justify-center mb-4`}>
-                    <Icon className="w-5 h-5" />
+                <div className="bg-white rounded-xl p-6 border border-border-light">
+                  <span className="text-3xl font-bold text-teal/20">{step.num}</span>
+                  <div className="mt-3 w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-teal" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
                   <p className="text-muted text-sm leading-relaxed">{step.desc}</p>
@@ -541,11 +528,11 @@ function HowItWorks() {
 
 function About() {
   return (
-    <section id="about" className="py-20 sm:py-28 bg-surface-warm">
+    <section id="about" className="py-20 sm:py-28 bg-surface">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
           <R className="lg:col-span-2">
-            <div className="bg-white rounded-2xl p-8 border border-border-light border-t-4 border-t-teal flex items-center justify-center">
+            <div className="bg-white rounded-2xl p-8 flex items-center justify-center">
               <Image
                 src="/logo.png"
                 alt="Yara's Cleaning"
@@ -582,19 +569,10 @@ function About() {
             </R>
 
             <R delay={2}>
-              <div className="mt-6 grid grid-cols-2 gap-3">
-                {[
-                  { icon: ShieldIcon, label: "Licensed & Insured" },
-                  { icon: UsersIcon, label: "Consistent Team" },
-                  { icon: DollarIcon, label: "Honest Pricing" },
-                  { icon: CalendarIcon, label: "Flexible Schedule" },
-                ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-2.5 text-sm text-foreground">
-                    <item.icon className="w-4 h-4 text-teal shrink-0" />
-                    {item.label}
-                  </div>
-                ))}
-              </div>
+              <a href={SMS_HREF} className="mt-6 inline-flex items-center gap-2 text-teal font-semibold text-sm hover:text-teal-dark transition-colors">
+                Get to know Yara — text us
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </R>
           </div>
         </div>
@@ -670,7 +648,7 @@ function ServiceArea() {
   ];
 
   return (
-    <section id="areas" className="py-20 sm:py-28 bg-surface">
+    <section id="areas" className="py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
           <div className="max-w-xl mb-12">
@@ -689,7 +667,7 @@ function ServiceArea() {
           <div className="space-y-4">
             {regions.map((region, i) => (
               <R key={region.name} delay={Math.min(i + 1, 3)}>
-                <div className="bg-white rounded-xl p-5 border border-border-light border-l-4 border-l-teal">
+                <div className="bg-surface rounded-xl p-5">
                   <h3 className="font-semibold text-foreground mb-1">{region.name}</h3>
                   <p className="text-muted text-sm">{region.areas}</p>
                 </div>
@@ -751,7 +729,7 @@ function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-20 sm:py-28">
+    <section id="faq" className="py-20 sm:py-28 bg-surface">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <R>
           <div className="max-w-xl mb-12">
