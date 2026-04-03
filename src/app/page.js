@@ -483,51 +483,6 @@ function Reviews() {
 }
 
 /* ════════════════════════════════════════
-   HOW IT WORKS
-   ════════════════════════════════════════ */
-
-function HowItWorks() {
-  const steps = [
-    { num: "01", icon: MessageIcon, title: "Reach Out", desc: "Text or call Yara. Tell her about your space and what you need." },
-    { num: "02", icon: EyeIcon, title: "Free Walk-Through", desc: "Yara visits your home, sees the space, and gives you an honest price on the spot." },
-    { num: "03", icon: CalendarIcon, title: "Pick Your Schedule", desc: "Weekly, biweekly, monthly, or one-time. Same team, same standard, every visit." },
-  ];
-
-  return (
-    <section id="how-it-works" className="py-20 sm:py-28 bg-surface">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <R>
-          <div className="max-w-xl mb-12">
-            <p className="text-teal font-semibold text-sm mb-2">How it works</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              Three simple steps
-            </h2>
-          </div>
-        </R>
-
-        <div className="grid sm:grid-cols-3 gap-6">
-          {steps.map((step, i) => {
-            const Icon = step.icon;
-            return (
-              <R key={step.num} delay={Math.min(i + 1, 3)}>
-                <div className="bg-white rounded-xl p-6 border border-border-light">
-                  <span className="text-3xl font-bold text-teal/20">{step.num}</span>
-                  <div className="mt-3 w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-teal" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
-                  <p className="text-muted text-sm leading-relaxed">{step.desc}</p>
-                </div>
-              </R>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ════════════════════════════════════════
    ABOUT YARA
    ════════════════════════════════════════ */
 
@@ -922,7 +877,6 @@ export default function Home() {
         <WhyYaras />
         <Guarantee />
         <Reviews />
-        <HowItWorks />
         <About />
         <ServiceArea />
         <FAQ />
