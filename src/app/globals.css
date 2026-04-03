@@ -2,24 +2,20 @@
 
 @theme inline {
   --color-background: #ffffff;
-  --color-foreground: #2d3a4a;
-  --color-muted: #6b7b8d;
-  --color-faint: #a0adb8;
-  --color-blue: #2c5f8a;
-  --color-blue-dark: #1a4468;
-  --color-blue-deep: #0f2a42;
+  --color-foreground: #1f2937;
+  --color-muted: #6b7280;
+  --color-faint: #9ca3af;
+  --color-border: #e5e7eb;
+  --color-border-light: #f3f4f6;
+  --color-blue: #1a4a6e;
+  --color-blue-light: #2c6a94;
+  --color-blue-dark: #0f2d44;
   --color-teal: #48b8a0;
   --color-teal-dark: #3a9a86;
-  --color-teal-light: #e0f5f0;
-  --color-warm: #d4956a;
-  --color-warm-dark: #c07a4e;
-  --color-warm-light: #fdf0e6;
-  --color-sky: #e8f2fa;
-  --color-sky-light: #f3f8fc;
-  --color-gold: #f5a623;
-  --color-cream: #fefcf8;
-  --color-bubble: #d4eef8;
-  --color-sparkle: #a8d8ea;
+  --color-teal-light: #edf8f5;
+  --color-surface: #f9fafb;
+  --color-gold: #f59e0b;
+  --color-warm: #c8956c;
   --font-sans: var(--font-geist-sans);
 }
 
@@ -37,61 +33,11 @@ section[id] { scroll-margin-top: 80px; }
 /* ── Reveal ── */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.12s; }
-.reveal-delay-2 { transition-delay: 0.24s; }
-.reveal-delay-3 { transition-delay: 0.36s; }
-.reveal-delay-4 { transition-delay: 0.48s; }
-
-/* ── Bubbles ── */
-@keyframes bubble-float {
-  0% { transform: translateY(0) scale(1); opacity: 0; }
-  10% { opacity: 0.5; }
-  80% { opacity: 0.2; }
-  100% { transform: translateY(-120px) scale(0.4); opacity: 0; }
-}
-
-.bubble {
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(72,184,160,0.15));
-  border: 1px solid rgba(72,184,160,0.15);
-  pointer-events: none;
-}
-
-.bubble-1 { width: 18px; height: 18px; left: 8%; animation: bubble-float 6s ease-in-out infinite; }
-.bubble-2 { width: 12px; height: 12px; left: 22%; animation: bubble-float 8s ease-in-out 1s infinite; }
-.bubble-3 { width: 24px; height: 24px; left: 75%; animation: bubble-float 7s ease-in-out 2s infinite; }
-.bubble-4 { width: 10px; height: 10px; left: 88%; animation: bubble-float 9s ease-in-out 0.5s infinite; }
-.bubble-5 { width: 16px; height: 16px; left: 50%; animation: bubble-float 7s ease-in-out 3s infinite; }
-.bubble-6 { width: 14px; height: 14px; left: 35%; animation: bubble-float 8s ease-in-out 4s infinite; }
-.bubble-7 { width: 20px; height: 20px; left: 65%; animation: bubble-float 6s ease-in-out 1.5s infinite; }
-
-/* ── Sparkle twinkle ── */
-@keyframes twinkle {
-  0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
-  50% { opacity: 1; transform: scale(1) rotate(180deg); }
-}
-.twinkle { animation: twinkle 3s ease-in-out infinite; }
-.twinkle-delay-1 { animation-delay: 1s; }
-.twinkle-delay-2 { animation-delay: 2s; }
-
-/* ── Cards ── */
-.service-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.service-card:hover {
-  transform: translateY(-8px);
-}
-
-/* ── Comparison checkmark animation ── */
-@keyframes check-pop {
-  0% { transform: scale(0); }
-  60% { transform: scale(1.2); }
-  100% { transform: scale(1); }
-}
-.check-pop { animation: check-pop 0.4s ease-out forwards; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
