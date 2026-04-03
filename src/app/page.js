@@ -107,7 +107,7 @@ function Header() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white shadow-sm" : ""}`}>
       {/* Top bar — only when scrolled to avoid double dark bar */}
       {scrolled && (
-        <div className="hidden sm:block bg-blue-dark text-white/80 text-xs">
+        <div className="hidden sm:block bg-navy-dark text-white/80 text-xs">
           <div className="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between">
             <div className="flex items-center gap-6">
               <span className="flex items-center gap-1.5">
@@ -152,7 +152,7 @@ function Header() {
           <a href="#reviews" className={`${navLinkColor} transition-colors`}>Reviews</a>
           <a href="#about" className={`${navLinkColor} transition-colors`}>About</a>
           <a href="#faq" className={`${navLinkColor} transition-colors`}>FAQ</a>
-          <a href={SMS_HREF} className="bg-teal text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-teal-dark transition-colors">
+          <a href={SMS_HREF} className="bg-green text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-green-dark transition-colors">
             Get Free Estimate
           </a>
         </nav>
@@ -181,10 +181,10 @@ function Header() {
             </a>
           ))}
           <div className="flex gap-3 mt-4">
-            <a href={SMS_HREF} className="flex-1 text-center bg-teal text-white py-3 rounded-lg text-sm font-semibold">
+            <a href={SMS_HREF} className="flex-1 text-center bg-green text-white py-3 rounded-lg text-sm font-semibold">
               Text Us
             </a>
-            <a href={PHONE_HREF} className="flex-1 text-center bg-blue text-white py-3 rounded-lg text-sm font-semibold">
+            <a href={PHONE_HREF} className="flex-1 text-center bg-navy text-white py-3 rounded-lg text-sm font-semibold">
               Call Now
             </a>
           </div>
@@ -200,15 +200,15 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="pt-32 sm:pt-44 pb-20 sm:pb-28 bg-gradient-to-br from-blue-dark via-blue to-teal-dark relative overflow-hidden">
+    <section className="pt-32 sm:pt-44 pb-20 sm:pb-28 bg-gradient-to-br from-navy-dark via-navy to-green-dark relative overflow-hidden">
       {/* Subtle decorative circles */}
-      <div className="absolute top-20 right-[10%] w-64 h-64 bg-teal/10 rounded-full blur-3xl" />
+      <div className="absolute top-20 right-[10%] w-64 h-64 bg-green/10 rounded-full blur-3xl" />
       <div className="absolute bottom-10 left-[5%] w-48 h-48 bg-white/5 rounded-full blur-2xl" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <div className="max-w-2xl">
           <R>
-            <p className="text-teal-light font-semibold text-sm mb-4 tracking-wide">Professional House Cleaning in MA & NH</p>
+            <p className="text-green-light font-semibold text-sm mb-4 tracking-wide">Professional House Cleaning in MA & NH</p>
           </R>
           <R delay={1}>
             <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.15] tracking-tight">
@@ -226,7 +226,7 @@ function Hero() {
             <div className="mt-8 flex flex-col sm:flex-row items-start gap-3">
               <a
                 href={SMS_HREF}
-                className="inline-flex items-center gap-2 bg-teal text-white px-6 py-3.5 rounded-lg text-sm font-semibold hover:bg-teal-dark transition-colors"
+                className="inline-flex items-center gap-2 bg-green text-white px-6 py-3.5 rounded-lg text-sm font-semibold hover:bg-green-dark transition-colors"
               >
                 <MessageIcon className="w-4 h-4" />
                 Text Us for a Free Estimate
@@ -244,11 +244,11 @@ function Hero() {
                 5-Star Rated
               </span>
               <span className="flex items-center gap-1.5">
-                <ShieldIcon className="w-3.5 h-3.5 text-teal" />
+                <ShieldIcon className="w-3.5 h-3.5 text-green" />
                 Licensed & Insured
               </span>
               <span className="flex items-center gap-1.5">
-                <CalendarIcon className="w-3.5 h-3.5 text-teal" />
+                <CalendarIcon className="w-3.5 h-3.5 text-green" />
                 Weekly &bull; Biweekly &bull; Monthly
               </span>
             </div>
@@ -278,7 +278,7 @@ function Services() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
           <div className="max-w-xl mb-12">
-            <p className="text-teal font-semibold text-sm mb-2">Services</p>
+            <p className="text-green font-semibold text-sm mb-2">Services</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               What we clean
             </h2>
@@ -293,9 +293,9 @@ function Services() {
             {services.map((s) => {
               const Icon = s.icon;
               return (
-                <div key={s.title} className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-border-light hover:border-teal/30 hover:shadow-md transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-teal" />
+                <div key={s.title} className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-border-light hover:border-green/30 hover:shadow-md transition-all">
+                  <div className="w-10 h-10 rounded-lg bg-green/10 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-green" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">{s.title}</h3>
                   <p className="text-muted text-sm leading-relaxed">{s.desc}</p>
@@ -328,7 +328,7 @@ function WhyYaras() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <R>
           <div className="text-center mb-12">
-            <p className="text-teal font-semibold text-sm mb-2">Why Yara&apos;s</p>
+            <p className="text-green font-semibold text-sm mb-2">Why Yara&apos;s</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               Not a franchise. Not an app. A real team.
             </h2>
@@ -339,7 +339,7 @@ function WhyYaras() {
           <div className="bg-white rounded-xl border border-border overflow-hidden">
             <div className="grid grid-cols-[1fr_72px_72px] sm:grid-cols-[1fr_100px_100px] items-center px-5 sm:px-6 py-3 bg-surface border-b border-border text-xs font-semibold text-muted uppercase tracking-wider">
               <span />
-              <span className="text-center text-blue">Yara&apos;s</span>
+              <span className="text-center text-navy">Yara&apos;s</span>
               <span className="text-center">Others</span>
             </div>
 
@@ -350,11 +350,11 @@ function WhyYaras() {
               >
                 <span className="text-sm text-foreground pr-4">{row.label}</span>
                 <div className="flex justify-center">
-                  <CheckIcon className="w-4 h-4 text-teal" />
+                  <CheckIcon className="w-4 h-4 text-green" />
                 </div>
                 <div className="flex justify-center">
                   {row.others === true ? (
-                    <CheckIcon className="w-4 h-4 text-teal" />
+                    <CheckIcon className="w-4 h-4 text-green" />
                   ) : row.others === false ? (
                     <XMarkIcon className="w-4 h-4 text-border" />
                   ) : (
@@ -379,10 +379,10 @@ function Guarantee() {
     <section className="py-16 sm:py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
-          <div className="bg-blue-dark rounded-2xl px-8 sm:px-12 py-10 sm:py-14 text-white flex flex-col sm:flex-row items-start gap-8">
+          <div className="bg-navy-dark rounded-2xl px-8 sm:px-12 py-10 sm:py-14 text-white flex flex-col sm:flex-row items-start gap-8">
             <div className="shrink-0">
-              <div className="w-16 h-16 rounded-xl bg-teal/20 flex items-center justify-center">
-                <ShieldIcon className="w-8 h-8 text-teal" />
+              <div className="w-16 h-16 rounded-xl bg-green/20 flex items-center justify-center">
+                <ShieldIcon className="w-8 h-8 text-green" />
               </div>
             </div>
             <div>
@@ -394,15 +394,15 @@ function Guarantee() {
               </p>
               <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70">
                 <span className="flex items-center gap-2">
-                  <CheckIcon className="w-3.5 h-3.5 text-teal" />
+                  <CheckIcon className="w-3.5 h-3.5 text-green" />
                   100% satisfaction
                 </span>
                 <span className="flex items-center gap-2">
-                  <CheckIcon className="w-3.5 h-3.5 text-teal" />
+                  <CheckIcon className="w-3.5 h-3.5 text-green" />
                   We&apos;ll re-clean it free
                 </span>
                 <span className="flex items-center gap-2">
-                  <CheckIcon className="w-3.5 h-3.5 text-teal" />
+                  <CheckIcon className="w-3.5 h-3.5 text-green" />
                   No questions asked
                 </span>
               </div>
@@ -447,7 +447,7 @@ function Reviews() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
           <div className="max-w-xl mb-12">
-            <p className="text-teal font-semibold text-sm mb-2">Reviews</p>
+            <p className="text-green font-semibold text-sm mb-2">Reviews</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               What our clients say
             </h2>
@@ -465,7 +465,7 @@ function Reviews() {
                   &ldquo;{review.text}&rdquo;
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-teal text-white flex items-center justify-center text-sm font-semibold">
+                  <div className="w-9 h-9 rounded-full bg-green text-white flex items-center justify-center text-sm font-semibold">
                     {review.name.charAt(0)}
                   </div>
                   <div>
@@ -505,7 +505,7 @@ function About() {
 
           <div className="lg:col-span-3">
             <R>
-              <p className="text-teal font-semibold text-sm mb-2">About</p>
+              <p className="text-green font-semibold text-sm mb-2">About</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight">
                 This is Yara&apos;s life&apos;s work.
               </h2>
@@ -529,7 +529,7 @@ function About() {
             </R>
 
             <R delay={2}>
-              <a href={SMS_HREF} className="mt-6 inline-flex items-center gap-2 text-teal font-semibold text-sm hover:text-teal-dark transition-colors">
+              <a href={SMS_HREF} className="mt-6 inline-flex items-center gap-2 text-green font-semibold text-sm hover:text-green-dark transition-colors">
                 Get to know Yara, text us
                 <ArrowRight className="w-4 h-4" />
               </a>
@@ -612,7 +612,7 @@ function ServiceArea() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
           <div className="max-w-xl mb-12">
-            <p className="text-teal font-semibold text-sm mb-2">Service Area</p>
+            <p className="text-green font-semibold text-sm mb-2">Service Area</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               Three regions, one standard
             </h2>
@@ -637,7 +637,7 @@ function ServiceArea() {
             <R delay={4}>
               <p className="text-sm text-muted">
                 Not sure if we cover your area?{" "}
-                <a href={SMS_HREF} className="text-teal font-medium hover:text-teal-dark transition-colors">
+                <a href={SMS_HREF} className="text-green font-medium hover:text-green-dark transition-colors">
                   Text us and ask &rarr;
                 </a>
               </p>
@@ -693,7 +693,7 @@ function FAQ() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <R>
           <div className="max-w-xl mb-12">
-            <p className="text-teal font-semibold text-sm mb-2">FAQ</p>
+            <p className="text-green font-semibold text-sm mb-2">FAQ</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               Common questions
             </h2>
@@ -721,7 +721,7 @@ function CTA() {
     <section className="py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
-          <div className="bg-blue-dark rounded-2xl px-8 sm:px-16 py-14 sm:py-20 text-center text-white">
+          <div className="bg-navy-dark rounded-2xl px-8 sm:px-16 py-14 sm:py-20 text-center text-white">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
               Ready for a cleaner home?
             </h2>
@@ -731,7 +731,7 @@ function CTA() {
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
                 href={SMS_HREF}
-                className="inline-flex items-center gap-2 bg-teal text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-teal-dark transition-colors"
+                className="inline-flex items-center gap-2 bg-green text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-green-dark transition-colors"
               >
                 <MessageIcon className="w-4 h-4" />
                 Text Us Now
@@ -759,7 +759,7 @@ function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-blue-dark text-white">
+    <footer className="bg-navy-dark text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand */}
@@ -798,11 +798,11 @@ function Footer() {
           <div>
             <h4 className="font-semibold text-white text-sm mb-4">Contact</h4>
             <div className="space-y-3">
-              <a href={SMS_HREF} className="flex items-center gap-2 text-sm text-teal hover:text-white transition-colors font-medium">
+              <a href={SMS_HREF} className="flex items-center gap-2 text-sm text-green hover:text-white transition-colors font-medium">
                 <MessageIcon className="w-4 h-4" />
                 Text Us
               </a>
-              <a href={PHONE_HREF} className="flex items-center gap-2 text-sm text-teal hover:text-white transition-colors font-medium">
+              <a href={PHONE_HREF} className="flex items-center gap-2 text-sm text-green hover:text-white transition-colors font-medium">
                 <PhoneIcon className="w-4 h-4" />
                 {PHONE}
               </a>
@@ -845,13 +845,13 @@ function StickyMobileCTA() {
 
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border px-4 py-3 flex gap-3">
-      <a href={SMS_HREF} className="flex-1 text-center bg-teal text-white py-3 rounded-lg text-sm font-semibold">
+      <a href={SMS_HREF} className="flex-1 text-center bg-green text-white py-3 rounded-lg text-sm font-semibold">
         <span className="flex items-center justify-center gap-2">
           <MessageIcon className="w-4 h-4" />
           Text Us
         </span>
       </a>
-      <a href={PHONE_HREF} className="flex-1 text-center bg-blue text-white py-3 rounded-lg text-sm font-semibold">
+      <a href={PHONE_HREF} className="flex-1 text-center bg-navy text-white py-3 rounded-lg text-sm font-semibold">
         <span className="flex items-center justify-center gap-2">
           <PhoneIcon className="w-4 h-4" />
           Call Now
