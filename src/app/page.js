@@ -454,14 +454,14 @@ function Reviews() {
           </div>
         </R>
 
-        <div className="grid sm:grid-cols-2 gap-5">
-          {reviews.map((review, i) => (
-            <R key={review.name} delay={Math.min(i + 1, 4)}>
-              <div className="bg-surface rounded-xl p-6 sm:p-8">
+        <R delay={1}>
+          <div className="grid sm:grid-cols-2 gap-5">
+            {reviews.map((review) => (
+              <div key={review.name} className="bg-surface rounded-xl p-6 sm:p-8 flex flex-col">
                 <div className="flex gap-0.5 mb-4">
                   {[1,2,3,4,5].map(s => <StarIcon key={s} className="w-4 h-4 text-gold" />)}
                 </div>
-                <p className="text-foreground leading-relaxed text-[15px] mb-6">
+                <p className="text-foreground leading-relaxed text-[15px] mb-6 flex-1">
                   &ldquo;{review.text}&rdquo;
                 </p>
                 <div className="flex items-center gap-3">
@@ -474,9 +474,9 @@ function Reviews() {
                   </div>
                 </div>
               </div>
-            </R>
-          ))}
-        </div>
+            ))}
+          </div>
+        </R>
       </div>
     </section>
   );
