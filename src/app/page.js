@@ -100,33 +100,38 @@ function Header() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
+  const navLinkColor = scrolled ? "text-muted hover:text-foreground" : "text-white/80 hover:text-white";
+  const hamburgerColor = scrolled ? "text-foreground" : "text-white";
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white shadow-sm" : ""}`}>
-      {/* Top bar */}
-      <div className="hidden sm:block bg-blue-dark text-white/80 text-xs">
-        <div className="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <span className="flex items-center gap-1.5">
-              <MapPinIcon className="w-3 h-3" />
-              Worcester &bull; Boston &bull; Southern NH
-            </span>
-            <span className="flex items-center gap-1.5">
-              <ShieldIcon className="w-3 h-3" />
-              Licensed & Insured
-            </span>
-          </div>
-          <div className="flex items-center gap-4">
-            <a href={PHONE_HREF} className="flex items-center gap-1.5 hover:text-white transition-colors">
-              <PhoneIcon className="w-3 h-3" />
-              {PHONE}
-            </a>
-            <a href={SMS_HREF} className="flex items-center gap-1.5 hover:text-white transition-colors">
-              <MessageIcon className="w-3 h-3" />
-              Text Us
-            </a>
+      {/* Top bar — only when scrolled to avoid double dark bar */}
+      {scrolled && (
+        <div className="hidden sm:block bg-blue-dark text-white/80 text-xs">
+          <div className="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between">
+            <div className="flex items-center gap-6">
+              <span className="flex items-center gap-1.5">
+                <MapPinIcon className="w-3 h-3" />
+                Worcester &bull; Boston &bull; Southern NH
+              </span>
+              <span className="flex items-center gap-1.5">
+                <ShieldIcon className="w-3 h-3" />
+                Licensed & Insured
+              </span>
+            </div>
+            <div className="flex items-center gap-4">
+              <a href={PHONE_HREF} className="flex items-center gap-1.5 hover:text-white transition-colors">
+                <PhoneIcon className="w-3 h-3" />
+                {PHONE}
+              </a>
+              <a href={SMS_HREF} className="flex items-center gap-1.5 hover:text-white transition-colors">
+                <MessageIcon className="w-3 h-3" />
+                Text Us
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Main nav */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-18 sm:h-20">
@@ -136,23 +141,23 @@ function Header() {
             alt="Yara's Cleaning - Spotless Homes, Caring Service"
             width={847}
             height={533}
-            className="h-12 sm:h-16 w-auto"
+            className={`h-12 sm:h-16 w-auto transition-all ${scrolled ? "" : "brightness-0 invert"}`}
             priority
           />
         </a>
 
         <nav className="hidden md:flex items-center gap-8 text-sm">
-          <a href="#services" className="text-muted hover:text-foreground transition-colors">Services</a>
-          <a href="#why-yaras" className="text-muted hover:text-foreground transition-colors">Why Us</a>
-          <a href="#reviews" className="text-muted hover:text-foreground transition-colors">Reviews</a>
-          <a href="#about" className="text-muted hover:text-foreground transition-colors">About</a>
-          <a href="#faq" className="text-muted hover:text-foreground transition-colors">FAQ</a>
+          <a href="#services" className={`${navLinkColor} transition-colors`}>Services</a>
+          <a href="#why-yaras" className={`${navLinkColor} transition-colors`}>Why Us</a>
+          <a href="#reviews" className={`${navLinkColor} transition-colors`}>Reviews</a>
+          <a href="#about" className={`${navLinkColor} transition-colors`}>About</a>
+          <a href="#faq" className={`${navLinkColor} transition-colors`}>FAQ</a>
           <a href={SMS_HREF} className="bg-teal text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-teal-dark transition-colors">
             Get Free Estimate
           </a>
         </nav>
 
-        <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden p-2" aria-label="Menu">
+        <button onClick={() => setMenuOpen(!menuOpen)} className={`md:hidden p-2 ${hamburgerColor}`} aria-label="Menu">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {menuOpen
               ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -233,7 +238,7 @@ function Hero() {
             </div>
           </R>
           <R delay={4}>
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/50">
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/70">
               <span className="flex items-center gap-1.5">
                 <div className="flex">{[1,2,3,4,5].map(i => <StarIcon key={i} className="w-3.5 h-3.5 text-gold" />)}</div>
                 5-Star Rated
@@ -288,7 +293,7 @@ function Services() {
             {services.map((s) => {
               const Icon = s.icon;
               return (
-                <div key={s.title} className="bg-white rounded-xl p-6 sm:p-7 border border-border-light hover:border-teal/30 hover:shadow-md transition-all">
+                <div key={s.title} className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-border-light hover:border-teal/30 hover:shadow-md transition-all">
                   <div className="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-teal" />
                   </div>
@@ -382,12 +387,12 @@ function Guarantee() {
             </div>
             <div>
               <h3 className="text-2xl font-bold mb-3">Yara&apos;s Sparkle Promise</h3>
-              <p className="text-white/70 leading-relaxed max-w-xl">
+              <p className="text-white/80 leading-relaxed max-w-xl">
                 If something isn&apos;t right, tell Yara. She&apos;ll come back and make
                 it right — no awkward conversations, no runaround. Your home should
                 feel like yours again when we leave.
               </p>
-              <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/50">
+              <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70">
                 <span className="flex items-center gap-2">
                   <CheckIcon className="w-3.5 h-3.5 text-teal" />
                   100% satisfaction
@@ -765,7 +770,7 @@ function CTA() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
               Ready for a cleaner home?
             </h2>
-            <p className="mt-4 text-white/60 max-w-md mx-auto">
+            <p className="mt-4 text-white/80 max-w-md mx-auto">
               Text or call Yara for a free walk-through and estimate. No pressure, no obligation.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -804,8 +809,10 @@ function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Image src="/logo.png" alt="Yara's Cleaning" width={847} height={533} className="h-14 w-auto mb-4 brightness-0 invert" />
-            <p className="text-white/50 text-sm leading-relaxed max-w-xs">
+            <div className="bg-white rounded-lg px-4 py-2 inline-block mb-4">
+              <Image src="/logo.png" alt="Yara's Cleaning" width={847} height={533} className="h-12 w-auto" />
+            </div>
+            <p className="text-white/70 text-sm leading-relaxed max-w-xs">
               Spotless homes, caring service. Licensed, insured, and serving families across MA & NH.
             </p>
           </div>
@@ -813,7 +820,7 @@ function Footer() {
           {/* Services */}
           <div>
             <h4 className="font-semibold text-white text-sm mb-4">Services</h4>
-            <ul className="space-y-2.5 text-white/50 text-sm">
+            <ul className="space-y-2.5 text-white/70 text-sm">
               <li><a href="#services" className="hover:text-white transition-colors">House Cleaning</a></li>
               <li><a href="#services" className="hover:text-white transition-colors">Apartment Cleaning</a></li>
               <li><a href="#services" className="hover:text-white transition-colors">Office Cleaning</a></li>
@@ -825,7 +832,7 @@ function Footer() {
           {/* Links */}
           <div>
             <h4 className="font-semibold text-white text-sm mb-4">Company</h4>
-            <ul className="space-y-2.5 text-white/50 text-sm">
+            <ul className="space-y-2.5 text-white/70 text-sm">
               <li><a href="#why-yaras" className="hover:text-white transition-colors">Why Yara&apos;s</a></li>
               <li><a href="#reviews" className="hover:text-white transition-colors">Reviews</a></li>
               <li><a href="#about" className="hover:text-white transition-colors">About Yara</a></li>
@@ -847,7 +854,7 @@ function Footer() {
                 {PHONE}
               </a>
             </div>
-            <div className="mt-4 space-y-2 text-xs text-white/30">
+            <div className="mt-4 space-y-2 text-xs text-white/60">
               <div className="flex items-center gap-1.5">
                 <ShieldIcon className="w-3 h-3" />
                 Licensed & Insured
@@ -860,7 +867,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-white/10 text-center text-xs text-white/20">
+        <div className="mt-10 pt-6 border-t border-white/10 text-center text-xs text-white/50">
           &copy; {year} Yara&apos;s Cleaning. All rights reserved.
         </div>
       </div>
