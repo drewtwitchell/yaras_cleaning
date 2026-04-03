@@ -2,18 +2,23 @@
 
 @theme inline {
   --color-background: #ffffff;
-  --color-foreground: #2d2d3f;
-  --color-muted: #6b6b8a;
-  --color-faint: #a5a5c0;
-  --color-purple: #7c3aed;
-  --color-purple-dark: #5b21b6;
-  --color-purple-deep: #3b0764;
-  --color-lavender: #c4b5fd;
-  --color-lavender-light: #ede9fe;
-  --color-lavender-soft: #f5f3ff;
-  --color-bubble: #e0d4fc;
-  --color-sparkle: #ddd6fe;
-  --color-gold: #f59e0b;
+  --color-foreground: #2d3a4a;
+  --color-muted: #6b7b8d;
+  --color-faint: #a0adb8;
+  --color-blue: #2c5f8a;
+  --color-blue-dark: #1a4468;
+  --color-blue-deep: #0f2a42;
+  --color-teal: #48b8a0;
+  --color-teal-dark: #3a9a86;
+  --color-teal-light: #e0f5f0;
+  --color-warm: #d4956a;
+  --color-warm-dark: #c07a4e;
+  --color-warm-light: #fdf0e6;
+  --color-sky: #e8f2fa;
+  --color-sky-light: #f3f8fc;
+  --color-gold: #f5a623;
+  --color-bubble: #d4eef8;
+  --color-sparkle: #a8d8ea;
   --font-sans: var(--font-geist-sans);
 }
 
@@ -62,9 +67,9 @@ section[id] { scroll-margin-top: 80px; }
 .bubble {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(196,181,253,0.3));
-  border: 1px solid rgba(196,181,253,0.3);
-  box-shadow: inset 0 -2px 4px rgba(124,58,237,0.05), 0 1px 3px rgba(196,181,253,0.15);
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(72,184,160,0.2));
+  border: 1px solid rgba(72,184,160,0.2);
+  box-shadow: inset 0 -2px 4px rgba(44,95,138,0.05), 0 1px 3px rgba(72,184,160,0.1);
   pointer-events: none;
 }
 
@@ -85,10 +90,23 @@ section[id] { scroll-margin-top: 80px; }
 .twinkle-delay-1 { animation-delay: 1s; }
 .twinkle-delay-2 { animation-delay: 2s; }
 
+/* ── Leaf sway ── */
+@keyframes leaf-sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
 /* ── Cards ── */
 .service-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .service-card:hover {
   transform: translateY(-8px);
+}
+
+/* ── Before/After slider ── */
+.ba-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
 }
