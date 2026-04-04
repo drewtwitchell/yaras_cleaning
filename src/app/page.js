@@ -200,15 +200,11 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="pt-32 sm:pt-44 pb-20 sm:pb-28 bg-gradient-to-br from-navy-dark via-navy to-green-dark relative overflow-hidden">
-      {/* Subtle decorative circles */}
-      <div className="absolute top-20 right-[10%] w-64 h-64 bg-green/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-10 left-[5%] w-48 h-48 bg-white/5 rounded-full blur-2xl" />
-
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+    <section className="pt-32 sm:pt-44 pb-20 sm:pb-28 bg-navy-dark">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="max-w-2xl">
           <R>
-            <p className="text-green-light font-semibold text-sm mb-4 tracking-wide">Professional House Cleaning in MA & NH</p>
+            <p className="text-green font-semibold text-sm mb-4 tracking-wide uppercase">Professional House Cleaning in MA & NH</p>
           </R>
           <R delay={1}>
             <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.15] tracking-tight">
@@ -278,7 +274,7 @@ function Services() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
           <div className="max-w-xl mb-12">
-            <p className="text-green font-semibold text-sm mb-2">Services</p>
+            <p className="text-navy font-semibold text-sm mb-2 uppercase tracking-wider">Services</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               What we clean
             </h2>
@@ -293,9 +289,9 @@ function Services() {
             {services.map((s) => {
               const Icon = s.icon;
               return (
-                <div key={s.title} className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-border-light hover:border-green/30 hover:shadow-md transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-green/10 flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-green" />
+                <div key={s.title} className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-border-light hover:border-navy/20 hover:shadow-md transition-all">
+                  <div className="w-10 h-10 rounded-lg bg-navy/8 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-navy" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">{s.title}</h3>
                   <p className="text-muted text-sm leading-relaxed">{s.desc}</p>
@@ -328,7 +324,7 @@ function WhyYaras() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <R>
           <div className="text-center mb-12">
-            <p className="text-green font-semibold text-sm mb-2">Why Yara&apos;s</p>
+            <p className="text-green font-semibold text-sm mb-2 uppercase tracking-wider">Why Yara&apos;s</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               Not a franchise. Not an app. A real team.
             </h2>
@@ -379,7 +375,7 @@ function Guarantee() {
     <section className="py-16 sm:py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
-          <div className="bg-navy-dark rounded-2xl px-8 sm:px-12 py-10 sm:py-14 text-white flex flex-col sm:flex-row items-start gap-8">
+          <div className="bg-[#0f1923] rounded-2xl px-8 sm:px-12 py-10 sm:py-14 text-white flex flex-col sm:flex-row items-start gap-8">
             <div className="shrink-0">
               <div className="w-16 h-16 rounded-xl bg-green/20 flex items-center justify-center">
                 <ShieldIcon className="w-8 h-8 text-green" />
@@ -447,7 +443,7 @@ function Reviews() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
           <div className="max-w-xl mb-12">
-            <p className="text-green font-semibold text-sm mb-2">Reviews</p>
+            <p className="text-navy font-semibold text-sm mb-2 uppercase tracking-wider">Reviews</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               What our clients say
             </h2>
@@ -505,7 +501,7 @@ function About() {
 
           <div className="lg:col-span-3">
             <R>
-              <p className="text-green font-semibold text-sm mb-2">About</p>
+              <p className="text-green font-semibold text-sm mb-2 uppercase tracking-wider">About</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight">
                 This is Yara&apos;s life&apos;s work.
               </h2>
@@ -555,23 +551,23 @@ function CoverageMap() {
         <text x="50" y="140" fill="#9ca3af" fontSize="11" fontWeight="600">NEW HAMPSHIRE</text>
         <text x="50" y="168" fill="#9ca3af" fontSize="11" fontWeight="600">MASSACHUSETTS</text>
 
-        <circle cx="200" cy="100" r="75" fill="#48b8a0" opacity="0.06" />
-        <circle cx="200" cy="100" r="75" stroke="#48b8a0" strokeWidth="1.5" opacity="0.2" strokeDasharray="4 3" />
-        <circle cx="250" cy="240" r="90" fill="#1a4a6e" opacity="0.06" />
-        <circle cx="250" cy="240" r="90" stroke="#1a4a6e" strokeWidth="1.5" opacity="0.2" strokeDasharray="4 3" />
-        <circle cx="120" cy="280" r="65" fill="#1a4a6e" opacity="0.06" />
-        <circle cx="120" cy="280" r="65" stroke="#1a4a6e" strokeWidth="1.5" opacity="0.2" strokeDasharray="4 3" />
+        <circle cx="200" cy="100" r="75" fill="#40a249" opacity="0.06" />
+        <circle cx="200" cy="100" r="75" stroke="#40a249" strokeWidth="1.5" opacity="0.2" strokeDasharray="4 3" />
+        <circle cx="250" cy="240" r="90" fill="#1a4e92" opacity="0.06" />
+        <circle cx="250" cy="240" r="90" stroke="#1a4e92" strokeWidth="1.5" opacity="0.2" strokeDasharray="4 3" />
+        <circle cx="120" cy="280" r="65" fill="#1a4e92" opacity="0.06" />
+        <circle cx="120" cy="280" r="65" stroke="#1a4e92" strokeWidth="1.5" opacity="0.2" strokeDasharray="4 3" />
 
-        <circle cx="175" cy="60" r="4" fill="#48b8a0" />
+        <circle cx="175" cy="60" r="4" fill="#40a249" />
         <text x="187" y="64" fill="#1f2937" fontSize="10" fontWeight="600">Nashua</text>
-        <circle cx="250" cy="80" r="4" fill="#48b8a0" />
+        <circle cx="250" cy="80" r="4" fill="#40a249" />
         <text x="262" y="84" fill="#1f2937" fontSize="10" fontWeight="600">Salem</text>
         <circle cx="155" cy="115" r="3" fill="#9ca3af" />
         <text x="118" y="112" fill="#6b7280" fontSize="10">Hudson</text>
         <circle cx="210" cy="100" r="3" fill="#9ca3af" />
         <text x="195" y="90" fill="#6b7280" fontSize="10">Pelham</text>
 
-        <circle cx="290" cy="220" r="6" fill="#1a4a6e" />
+        <circle cx="290" cy="220" r="6" fill="#1a4e92" />
         <text x="302" y="224" fill="#1f2937" fontSize="12" fontWeight="700">Boston</text>
         <circle cx="260" cy="195" r="3" fill="#9ca3af" />
         <text x="270" y="199" fill="#6b7280" fontSize="10">Cambridge</text>
@@ -582,16 +578,16 @@ function CoverageMap() {
         <circle cx="240" cy="265" r="3" fill="#9ca3af" />
         <text x="250" y="269" fill="#6b7280" fontSize="10">Brookline</text>
 
-        <circle cx="115" cy="275" r="5" fill="#1a4a6e" />
+        <circle cx="115" cy="275" r="5" fill="#1a4e92" />
         <text x="72" y="265" fill="#1f2937" fontSize="12" fontWeight="700">Worcester</text>
         <circle cx="145" cy="300" r="3" fill="#9ca3af" />
         <text x="155" y="304" fill="#6b7280" fontSize="10">Shrewsbury</text>
         <circle cx="100" cy="310" r="3" fill="#9ca3af" />
         <text x="60" y="314" fill="#6b7280" fontSize="10">Auburn</text>
 
-        <circle cx="50" cy="400" r="8" fill="#48b8a0" opacity="0.12" stroke="#48b8a0" strokeWidth="1" />
+        <circle cx="50" cy="400" r="8" fill="#40a249" opacity="0.12" stroke="#40a249" strokeWidth="1" />
         <text x="66" y="404" fill="#6b7280" fontSize="11">Coverage Area</text>
-        <circle cx="170" cy="400" r="4" fill="#1a4a6e" />
+        <circle cx="170" cy="400" r="4" fill="#1a4e92" />
         <text x="182" y="404" fill="#6b7280" fontSize="11">Major City</text>
         <circle cx="275" cy="400" r="3" fill="#9ca3af" />
         <text x="285" y="404" fill="#6b7280" fontSize="11">Town</text>
@@ -612,7 +608,7 @@ function ServiceArea() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
           <div className="max-w-xl mb-12">
-            <p className="text-green font-semibold text-sm mb-2">Service Area</p>
+            <p className="text-navy font-semibold text-sm mb-2 uppercase tracking-wider">Service Area</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               Three regions, one standard
             </h2>
@@ -693,7 +689,7 @@ function FAQ() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <R>
           <div className="max-w-xl mb-12">
-            <p className="text-green font-semibold text-sm mb-2">FAQ</p>
+            <p className="text-green font-semibold text-sm mb-2 uppercase tracking-wider">FAQ</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
               Common questions
             </h2>
@@ -721,7 +717,7 @@ function CTA() {
     <section className="py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
-          <div className="bg-navy-dark rounded-2xl px-8 sm:px-16 py-14 sm:py-20 text-center text-white">
+          <div className="bg-navy rounded-2xl px-8 sm:px-16 py-14 sm:py-20 text-center text-white">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
               Ready for a cleaner home?
             </h2>
@@ -759,7 +755,7 @@ function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-navy-dark text-white">
+    <footer className="bg-[#0c1520] text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand */}

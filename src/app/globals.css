@@ -2,21 +2,23 @@
 
 @theme inline {
   --color-background: #ffffff;
-  --color-foreground: #1f2937;
-  --color-muted: #6b7280;
+  --color-foreground: #111827;
+  --color-muted: #4b5563;
   --color-faint: #9ca3af;
   --color-border: #e5e7eb;
   --color-border-light: #f3f4f6;
   --color-navy: #1a4e92;
   --color-navy-dark: #123a6e;
   --color-navy-deep: #0d2a50;
+  --color-blue: #2d6caa;
   --color-green: #40a249;
   --color-green-dark: #35893d;
   --color-green-light: #eef7ef;
+  --color-teal: #1a8a7a;
   --color-orange: #eb7e34;
   --color-orange-dark: #d06a25;
   --color-orange-light: #fdf0e6;
-  --color-surface: #f3f4f6;
+  --color-surface: #f5f6f8;
   --color-gold: #f4ad62;
   --font-sans: var(--font-geist-sans);
 }
