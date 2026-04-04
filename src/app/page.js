@@ -113,7 +113,7 @@ function Header() {
           <a href="#reviews" className="text-muted hover:text-foreground transition-colors font-medium">Reviews</a>
           <a href="#about" className="text-muted hover:text-foreground transition-colors font-medium">About</a>
           <a href="#faq" className="text-muted hover:text-foreground transition-colors font-medium">FAQ</a>
-          <a href={SMS_HREF} className="bg-green text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-green-dark transition-colors">Get Free Estimate</a>
+          <a href={SMS_HREF} className="bg-orange text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-orange-dark transition-colors">Get Free Estimate</a>
         </nav>
         <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden p-2" aria-label="Menu">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -140,46 +140,39 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="pt-40 sm:pt-48 pb-20 sm:pb-28 bg-navy-dark">
+    <section className="pt-40 sm:pt-48 pb-20 sm:pb-28 bg-white border-b border-border-light">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <R>
-              <h1 className="text-4xl sm:text-5xl font-bold text-white leading-[1.15] tracking-tight">
-                Your home deserves someone who actually cares.
-              </h1>
-            </R>
-            <R delay={1}>
-              <p className="mt-5 text-lg text-white/70 leading-relaxed">
-                Yara walks through your space, gives you an honest price, and
-                her team cleans it like their own. Free estimates, no surprises,
-                no contracts.
-              </p>
-            </R>
-            <R delay={2}>
-              <div className="mt-8 flex flex-col sm:flex-row items-start gap-3">
-                <a href={SMS_HREF} className="inline-flex items-center gap-2 bg-orange text-white px-6 py-3.5 rounded-lg text-sm font-semibold hover:bg-orange-dark transition-colors">
-                  <MessageIcon className="w-4 h-4" />Text Us for a Free Estimate
-                </a>
-                <a href={PHONE_HREF} className="inline-flex items-center gap-2 bg-white/10 text-white px-6 py-3.5 rounded-lg text-sm font-semibold border border-white/20 hover:bg-white/20 transition-colors">
-                  <PhoneIcon className="w-4 h-4" />{PHONE}
-                </a>
-              </div>
-            </R>
-            <R delay={3}>
-              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/60">
-                <span className="flex items-center gap-1.5">
-                  <div className="flex">{[1,2,3,4,5].map(i => <StarIcon key={i} className="w-3.5 h-3.5 text-gold" />)}</div>
-                  5-Star Rated
-                </span>
-                <span className="flex items-center gap-1.5"><ShieldIcon className="w-3.5 h-3.5 text-green" />Licensed & Insured</span>
-                <span className="flex items-center gap-1.5"><CalendarIcon className="w-3.5 h-3.5 text-green" />Weekly, Biweekly, Monthly</span>
-              </div>
-            </R>
-          </div>
-          <R delay={2} className="hidden lg:block">
-            <div className="bg-white rounded-2xl p-10 shadow-2xl">
-              <Image src="/logo.png" alt="Yara's Cleaning" width={1077} height={526} className="w-full h-auto" />
+        <div className="max-w-2xl mx-auto text-center">
+          <R>
+            <h1 className="text-4xl sm:text-5xl font-bold text-foreground leading-[1.15] tracking-tight">
+              Your home deserves someone who actually cares.
+            </h1>
+          </R>
+          <R delay={1}>
+            <p className="mt-5 text-lg text-muted leading-relaxed max-w-xl mx-auto">
+              Yara walks through your space, gives you an honest price, and
+              her team cleans it like their own. Free estimates, no surprises,
+              no contracts.
+            </p>
+          </R>
+          <R delay={2}>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a href={SMS_HREF} className="inline-flex items-center gap-2 bg-green text-white px-7 py-3.5 rounded-lg text-sm font-semibold hover:bg-green-dark transition-colors">
+                <MessageIcon className="w-4 h-4" />Text Us for a Free Estimate
+              </a>
+              <a href={PHONE_HREF} className="inline-flex items-center gap-2 bg-navy text-white px-7 py-3.5 rounded-lg text-sm font-semibold hover:bg-navy-dark transition-colors">
+                <PhoneIcon className="w-4 h-4" />{PHONE}
+              </a>
+            </div>
+          </R>
+          <R delay={3}>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted">
+              <span className="flex items-center gap-1.5">
+                <div className="flex">{[1,2,3,4,5].map(i => <StarIcon key={i} className="w-3.5 h-3.5 text-gold" />)}</div>
+                5-Star Rated
+              </span>
+              <span className="flex items-center gap-1.5"><ShieldIcon className="w-3.5 h-3.5 text-green" />Licensed & Insured</span>
+              <span className="flex items-center gap-1.5"><CalendarIcon className="w-3.5 h-3.5 text-navy" />Weekly, Biweekly, Monthly</span>
             </div>
           </R>
         </div>
@@ -232,29 +225,31 @@ function Services() {
 
 function WhyYaras() {
   const points = [
-    { icon: "👋", title: "In-person walk-through", desc: "Yara visits your space before quoting. Every home is different." },
-    { icon: "👥", title: "Same team every visit", desc: "No random strangers. Your team knows your home, your standards." },
-    { icon: "📱", title: "Text the owner directly", desc: "No call centers. You text Yara herself." },
-    { icon: "💰", title: "Flat, honest pricing", desc: "No hidden fees. No surprises on cleaning day." },
-    { icon: "✅", title: "Satisfaction guarantee", desc: "Not happy? Yara comes back and makes it right. Free." },
+    { Icon: HomeIcon, title: "In-person walk-through", desc: "Yara visits your space before quoting. Every home is different." },
+    { Icon: CalendarIcon, title: "Same team every visit", desc: "No random strangers. Your team knows your home, your standards." },
+    { Icon: MessageIcon, title: "Text the owner directly", desc: "No call centers. You text Yara herself." },
+    { Icon: DollarIcon, title: "Flat, honest pricing", desc: "No hidden fees. No surprises on cleaning day." },
+    { Icon: ShieldIcon, title: "Satisfaction guarantee", desc: "Not happy? Yara comes back and makes it right. Free." },
   ];
 
   return (
-    <section id="why-yaras" className="py-20 sm:py-28 bg-navy-dark text-white">
+    <section id="why-yaras" className="py-20 sm:py-28 bg-surface">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold">Why families choose Yara&apos;s</h2>
-            <p className="mt-3 text-white/60">Not a franchise. Not an app. A real team that takes care of real homes.</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Why families choose Yara&apos;s</h2>
+            <p className="mt-3 text-muted">Not a franchise. Not an app. A real team that takes care of real homes.</p>
           </div>
         </R>
         <R delay={1}>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {points.map((p) => (
-              <div key={p.title} className="bg-white/5 border border-white/10 rounded-xl p-6">
-                <span className="text-2xl mb-3 block">{p.icon}</span>
-                <h3 className="font-semibold text-white mb-1">{p.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed">{p.desc}</p>
+              <div key={p.title} className="bg-white rounded-xl p-6 border border-border-light">
+                <div className="w-10 h-10 rounded-lg bg-green-light flex items-center justify-center mb-4">
+                  <p.Icon className="w-5 h-5 text-green" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-1">{p.title}</h3>
+                <p className="text-muted text-sm leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -451,14 +446,14 @@ function FAQ() {
 
 function CTA() {
   return (
-    <section className="py-20 sm:py-28 bg-navy-dark">
+    <section className="py-20 sm:py-28">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-        <R><h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">Ready for a cleaner home?</h2></R>
-        <R delay={1}><p className="mt-4 text-white/70 max-w-md mx-auto">Text or call Yara for a free walk-through and estimate. No pressure, no obligation.</p></R>
+        <R><h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight">Ready for a cleaner home?</h2></R>
+        <R delay={1}><p className="mt-4 text-muted max-w-md mx-auto">Text or call Yara for a free walk-through and estimate. No pressure, no obligation.</p></R>
         <R delay={2}>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a href={SMS_HREF} className="inline-flex items-center gap-2 bg-orange text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-orange-dark transition-colors"><MessageIcon className="w-4 h-4" />Text Us Now</a>
-            <a href={PHONE_HREF} className="inline-flex items-center gap-2 bg-white/10 text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-white/20 transition-colors border border-white/20"><PhoneIcon className="w-4 h-4" />{PHONE}</a>
+            <a href={SMS_HREF} className="inline-flex items-center gap-2 bg-green text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-green-dark transition-colors"><MessageIcon className="w-4 h-4" />Text Us Now</a>
+            <a href={PHONE_HREF} className="inline-flex items-center gap-2 bg-navy text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-navy-dark transition-colors"><PhoneIcon className="w-4 h-4" />{PHONE}</a>
           </div>
         </R>
       </div>
