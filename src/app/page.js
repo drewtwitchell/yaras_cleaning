@@ -91,7 +91,7 @@ function Header() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white shadow-sm" : ""}`}>
-      <div className="bg-orange text-white text-xs font-medium">
+      <div className="bg-green text-white text-xs font-medium">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between">
           <div className="hidden sm:flex items-center gap-5">
             <span className="flex items-center gap-1.5"><MapPinIcon className="w-3 h-3" />Worcester &bull; Boston &bull; Southern NH</span>
@@ -112,7 +112,7 @@ function Header() {
             const href = `#${label === "Why Us" ? "why-yaras" : label.toLowerCase()}`;
             return <a key={label} href={href} className={`${scrolled ? "text-muted hover:text-foreground" : "text-white/80 hover:text-white"} transition-colors font-medium`}>{label}</a>;
           })}
-          <a href={SMS_HREF} className="bg-orange text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-orange-dark transition-colors">Get Free Estimate</a>
+          <a href={SMS_HREF} className="bg-green text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-green-dark transition-colors">Get Free Estimate</a>
         </nav>
         <button onClick={() => setMenuOpen(!menuOpen)} className={`md:hidden p-2 ${scrolled ? "" : "text-white"}`} aria-label="Menu">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,7 +156,7 @@ function Hero() {
           </R>
           <R delay={2}>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a href={SMS_HREF} className="inline-flex items-center gap-2 bg-orange text-white px-7 py-3.5 rounded-lg text-sm font-semibold hover:bg-orange-dark transition-colors">
+              <a href={SMS_HREF} className="inline-flex items-center gap-2 bg-green text-white px-7 py-3.5 rounded-lg text-sm font-semibold hover:bg-green-dark transition-colors">
                 <MessageIcon className="w-4 h-4" />Text Us for a Free Estimate
               </a>
               <a href={PHONE_HREF} className="inline-flex items-center gap-2 bg-white/15 text-white px-7 py-3.5 rounded-lg text-sm font-semibold hover:bg-white/25 transition-colors border border-white/25">
@@ -262,12 +262,12 @@ function WhyYaras() {
 
 function Guarantee() {
   return (
-    <section className="py-16 sm:py-20 bg-orange-light">
+    <section className="py-16 sm:py-20 bg-green-light">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <R>
           <div className="flex flex-col sm:flex-row items-start gap-6">
             <div className="shrink-0">
-              <div className="w-14 h-14 rounded-full bg-orange flex items-center justify-center">
+              <div className="w-14 h-14 rounded-full bg-green flex items-center justify-center">
                 <ShieldIcon className="w-7 h-7 text-white" />
               </div>
             </div>
@@ -348,7 +348,7 @@ function About() {
               </div>
             </R>
             <R delay={2}>
-              <a href={SMS_HREF} className="mt-6 inline-flex items-center gap-2 text-orange font-semibold text-sm hover:text-orange-dark transition-colors">
+              <a href={SMS_HREF} className="mt-6 inline-flex items-center gap-2 text-green font-semibold text-sm hover:text-green-dark transition-colors">
                 Get to know Yara, text us <ArrowRight className="w-4 h-4" />
               </a>
             </R>
@@ -451,7 +451,7 @@ function CTA() {
         <R delay={1}><p className="mt-4 text-white/70 max-w-md mx-auto">Text or call Yara for a free walk-through and estimate. No pressure, no obligation.</p></R>
         <R delay={2}>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a href={SMS_HREF} className="inline-flex items-center gap-2 bg-orange text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-orange-dark transition-colors"><MessageIcon className="w-4 h-4" />Text Us Now</a>
+            <a href={SMS_HREF} className="inline-flex items-center gap-2 bg-green text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-green-dark transition-colors"><MessageIcon className="w-4 h-4" />Text Us Now</a>
             <a href={PHONE_HREF} className="inline-flex items-center gap-2 bg-white/15 text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-white/25 transition-colors border border-white/25"><PhoneIcon className="w-4 h-4" />{PHONE}</a>
           </div>
         </R>
@@ -495,8 +495,8 @@ function Footer() {
           <div>
             <h4 className="font-semibold text-white text-sm mb-4">Contact</h4>
             <div className="space-y-3">
-              <a href={SMS_HREF} className="flex items-center gap-2 text-sm text-orange hover:text-white transition-colors font-medium"><MessageIcon className="w-4 h-4" />Text Us</a>
-              <a href={PHONE_HREF} className="flex items-center gap-2 text-sm text-orange hover:text-white transition-colors font-medium"><PhoneIcon className="w-4 h-4" />{PHONE}</a>
+              <a href={SMS_HREF} className="flex items-center gap-2 text-sm text-green hover:text-white transition-colors font-medium"><MessageIcon className="w-4 h-4" />Text Us</a>
+              <a href={PHONE_HREF} className="flex items-center gap-2 text-sm text-green hover:text-white transition-colors font-medium"><PhoneIcon className="w-4 h-4" />{PHONE}</a>
             </div>
             <div className="mt-4 space-y-2 text-xs text-white/40">
               <div className="flex items-center gap-1.5"><ShieldIcon className="w-3 h-3" />Licensed & Insured</div>
@@ -521,8 +521,8 @@ function StickyMobileCTA() {
   }, []);
   if (!visible) return null;
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-orange px-4 py-3 flex gap-3">
-      <a href={SMS_HREF} className="flex-1 text-center bg-white text-orange-dark py-3 rounded-lg text-sm font-bold">Text Us</a>
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-green px-4 py-3 flex gap-3">
+      <a href={SMS_HREF} className="flex-1 text-center bg-white text-green-dark py-3 rounded-lg text-sm font-bold">Text Us</a>
       <a href={PHONE_HREF} className="flex-1 text-center bg-white/20 text-white py-3 rounded-lg text-sm font-bold border border-white/30">Call {PHONE}</a>
     </div>
   );
