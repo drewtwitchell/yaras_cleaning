@@ -40,9 +40,6 @@ function MessageIcon({ className }) {
 function CheckIcon({ className }) {
   return <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>;
 }
-function XMarkIcon({ className }) {
-  return <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>;
-}
 function ArrowRight({ className }) {
   return <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>;
 }
@@ -76,19 +73,11 @@ function CalendarIcon({ className }) {
 function DollarIcon({ className }) {
   return <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" /></svg>;
 }
-function UsersIcon({ className }) {
-  return <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87" /><path d="M16 3.13a4 4 0 010 7.75" /></svg>;
-}
 function MapPinIcon({ className }) {
   return <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>;
 }
-function EyeIcon({ className }) {
-  return <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>;
-}
 
-/* ════════════════════════════════════════
-   HEADER
-   ════════════════════════════════════════ */
+/* ════════════════════════════════════════ */
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -100,93 +89,46 @@ function Header() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  const navLinkColor = scrolled ? "text-muted hover:text-foreground" : "text-white/80 hover:text-white";
-  const hamburgerColor = scrolled ? "text-foreground" : "text-white";
-
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white shadow-sm" : ""}`}>
-      {/* Top bar — only when scrolled to avoid double dark bar */}
-      {scrolled && (
-        <div className="hidden sm:block bg-navy-dark text-white/80 text-xs">
-          <div className="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between">
-            <div className="flex items-center gap-6">
-              <span className="flex items-center gap-1.5">
-                <MapPinIcon className="w-3 h-3" />
-                Worcester &bull; Boston &bull; Southern NH
-              </span>
-              <span className="flex items-center gap-1.5">
-                <ShieldIcon className="w-3 h-3" />
-                Licensed & Insured
-              </span>
-            </div>
-            <div className="flex items-center gap-4">
-              <a href={PHONE_HREF} className="flex items-center gap-1.5 hover:text-white transition-colors">
-                <PhoneIcon className="w-3 h-3" />
-                {PHONE}
-              </a>
-              <a href={SMS_HREF} className="flex items-center gap-1.5 hover:text-white transition-colors">
-                <MessageIcon className="w-3 h-3" />
-                Text Us
-              </a>
-            </div>
+      <div className="bg-orange text-white text-xs font-medium">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between">
+          <div className="hidden sm:flex items-center gap-5">
+            <span className="flex items-center gap-1.5"><MapPinIcon className="w-3 h-3" />Worcester &bull; Boston &bull; Southern NH</span>
+            <span className="flex items-center gap-1.5"><ShieldIcon className="w-3 h-3" />Licensed & Insured</span>
+          </div>
+          <div className="flex items-center gap-4 sm:gap-5 mx-auto sm:mx-0">
+            <a href={PHONE_HREF} className="flex items-center gap-1.5 hover:text-white/80 transition-colors"><PhoneIcon className="w-3 h-3" />{PHONE}</a>
+            <a href={SMS_HREF} className="flex items-center gap-1.5 hover:text-white/80 transition-colors"><MessageIcon className="w-3 h-3" />Text Us</a>
           </div>
         </div>
-      )}
-
-      {/* Main nav */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-18 sm:h-20">
+      </div>
+      <div className={`max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-18 sm:h-20 ${scrolled ? "" : "bg-white"}`}>
         <a href="#" className="shrink-0">
-          <Image
-            src="/logo.png"
-            alt="Yara's Cleaning - Spotless Homes, Caring Service"
-            width={1077}
-            height={526}
-            className={`h-12 sm:h-16 w-auto transition-all ${scrolled ? "" : "brightness-0 invert"}`}
-            priority
-          />
+          <Image src="/logo.png" alt="Yara's Cleaning" width={1077} height={526} className="h-12 sm:h-16 w-auto" priority />
         </a>
-
-        <nav className="hidden md:flex items-center gap-8 text-sm">
-          <a href="#services" className={`${navLinkColor} transition-colors`}>Services</a>
-          <a href="#why-yaras" className={`${navLinkColor} transition-colors`}>Why Us</a>
-          <a href="#reviews" className={`${navLinkColor} transition-colors`}>Reviews</a>
-          <a href="#about" className={`${navLinkColor} transition-colors`}>About</a>
-          <a href="#faq" className={`${navLinkColor} transition-colors`}>FAQ</a>
-          <a href={SMS_HREF} className="bg-green text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-green-dark transition-colors">
-            Get Free Estimate
-          </a>
+        <nav className="hidden md:flex items-center gap-7 text-sm">
+          <a href="#services" className="text-muted hover:text-foreground transition-colors font-medium">Services</a>
+          <a href="#why-yaras" className="text-muted hover:text-foreground transition-colors font-medium">Why Us</a>
+          <a href="#reviews" className="text-muted hover:text-foreground transition-colors font-medium">Reviews</a>
+          <a href="#about" className="text-muted hover:text-foreground transition-colors font-medium">About</a>
+          <a href="#faq" className="text-muted hover:text-foreground transition-colors font-medium">FAQ</a>
+          <a href={SMS_HREF} className="bg-green text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-green-dark transition-colors">Get Free Estimate</a>
         </nav>
-
-        <button onClick={() => setMenuOpen(!menuOpen)} className={`md:hidden p-2 ${hamburgerColor}`} aria-label="Menu">
+        <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden p-2" aria-label="Menu">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {menuOpen
-              ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            }
+            {menuOpen ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /> : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />}
           </svg>
         </button>
       </div>
-
       {menuOpen && (
         <nav className="md:hidden px-4 pb-4 bg-white border-t border-border-light">
-          {[
-            { label: "Services", href: "#services" },
-            { label: "Why Us", href: "#why-yaras" },
-            { label: "Reviews", href: "#reviews" },
-            { label: "About", href: "#about" },
-            { label: "FAQ", href: "#faq" },
-          ].map((item) => (
-            <a key={item.label} href={item.href} onClick={() => setMenuOpen(false)} className="block text-muted hover:text-foreground py-3 border-b border-border-light text-sm">
-              {item.label}
-            </a>
+          {[{label:"Services",href:"#services"},{label:"Why Us",href:"#why-yaras"},{label:"Reviews",href:"#reviews"},{label:"About",href:"#about"},{label:"FAQ",href:"#faq"}].map((item) => (
+            <a key={item.label} href={item.href} onClick={() => setMenuOpen(false)} className="block text-muted hover:text-foreground py-3 border-b border-border-light text-sm font-medium">{item.label}</a>
           ))}
           <div className="flex gap-3 mt-4">
-            <a href={SMS_HREF} className="flex-1 text-center bg-green text-white py-3 rounded-lg text-sm font-semibold">
-              Text Us
-            </a>
-            <a href={PHONE_HREF} className="flex-1 text-center bg-navy text-white py-3 rounded-lg text-sm font-semibold">
-              Call Now
-            </a>
+            <a href={SMS_HREF} className="flex-1 text-center bg-green text-white py-3 rounded-lg text-sm font-semibold">Text Us</a>
+            <a href={PHONE_HREF} className="flex-1 text-center bg-navy text-white py-3 rounded-lg text-sm font-semibold">Call Now</a>
           </div>
         </nav>
       )}
@@ -194,59 +136,50 @@ function Header() {
   );
 }
 
-/* ════════════════════════════════════════
-   HERO
-   ════════════════════════════════════════ */
+/* ════════════════════════════════════════ */
 
 function Hero() {
   return (
-    <section className="pt-32 sm:pt-44 pb-20 sm:pb-28 bg-navy-dark">
+    <section className="pt-40 sm:pt-48 pb-20 sm:pb-28 bg-navy-dark">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="max-w-2xl">
-          <R>
-            <p className="text-green font-semibold text-sm mb-4 tracking-wide uppercase">Professional House Cleaning in MA & NH</p>
-          </R>
-          <R delay={1}>
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.15] tracking-tight">
-              Your home deserves someone who actually cares.
-            </h1>
-          </R>
-          <R delay={2}>
-            <p className="mt-5 text-lg text-white/70 leading-relaxed max-w-xl">
-              Yara walks through your space, gives you an honest price, and
-              her team cleans it like their own. Free estimates, no surprises,
-              no contracts.
-            </p>
-          </R>
-          <R delay={3}>
-            <div className="mt-8 flex flex-col sm:flex-row items-start gap-3">
-              <a
-                href={SMS_HREF}
-                className="inline-flex items-center gap-2 bg-green text-white px-6 py-3.5 rounded-lg text-sm font-semibold hover:bg-green-dark transition-colors"
-              >
-                <MessageIcon className="w-4 h-4" />
-                Text Us for a Free Estimate
-              </a>
-              <a href={PHONE_HREF} className="inline-flex items-center gap-2 bg-white/10 text-white px-6 py-3.5 rounded-lg text-sm font-semibold border border-white/20 hover:bg-white/20 transition-colors">
-                <PhoneIcon className="w-4 h-4" />
-                {PHONE}
-              </a>
-            </div>
-          </R>
-          <R delay={4}>
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/70">
-              <span className="flex items-center gap-1.5">
-                <div className="flex">{[1,2,3,4,5].map(i => <StarIcon key={i} className="w-3.5 h-3.5 text-gold" />)}</div>
-                5-Star Rated
-              </span>
-              <span className="flex items-center gap-1.5">
-                <ShieldIcon className="w-3.5 h-3.5 text-green" />
-                Licensed & Insured
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CalendarIcon className="w-3.5 h-3.5 text-green" />
-                Weekly &bull; Biweekly &bull; Monthly
-              </span>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <R>
+              <h1 className="text-4xl sm:text-5xl font-bold text-white leading-[1.15] tracking-tight">
+                Your home deserves someone who actually cares.
+              </h1>
+            </R>
+            <R delay={1}>
+              <p className="mt-5 text-lg text-white/70 leading-relaxed">
+                Yara walks through your space, gives you an honest price, and
+                her team cleans it like their own. Free estimates, no surprises,
+                no contracts.
+              </p>
+            </R>
+            <R delay={2}>
+              <div className="mt-8 flex flex-col sm:flex-row items-start gap-3">
+                <a href={SMS_HREF} className="inline-flex items-center gap-2 bg-orange text-white px-6 py-3.5 rounded-lg text-sm font-semibold hover:bg-orange-dark transition-colors">
+                  <MessageIcon className="w-4 h-4" />Text Us for a Free Estimate
+                </a>
+                <a href={PHONE_HREF} className="inline-flex items-center gap-2 bg-white/10 text-white px-6 py-3.5 rounded-lg text-sm font-semibold border border-white/20 hover:bg-white/20 transition-colors">
+                  <PhoneIcon className="w-4 h-4" />{PHONE}
+                </a>
+              </div>
+            </R>
+            <R delay={3}>
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/60">
+                <span className="flex items-center gap-1.5">
+                  <div className="flex">{[1,2,3,4,5].map(i => <StarIcon key={i} className="w-3.5 h-3.5 text-gold" />)}</div>
+                  5-Star Rated
+                </span>
+                <span className="flex items-center gap-1.5"><ShieldIcon className="w-3.5 h-3.5 text-green" />Licensed & Insured</span>
+                <span className="flex items-center gap-1.5"><CalendarIcon className="w-3.5 h-3.5 text-green" />Weekly, Biweekly, Monthly</span>
+              </div>
+            </R>
+          </div>
+          <R delay={2} className="hidden lg:block">
+            <div className="bg-white rounded-2xl p-10 shadow-2xl">
+              <Image src="/logo.png" alt="Yara's Cleaning" width={1077} height={526} className="w-full h-auto" />
             </div>
           </R>
         </div>
@@ -255,9 +188,7 @@ function Hero() {
   );
 }
 
-/* ════════════════════════════════════════
-   SERVICES
-   ════════════════════════════════════════ */
+/* ════════════════════════════════════════ */
 
 function Services() {
   const services = [
@@ -273,26 +204,18 @@ function Services() {
     <section id="services" className="py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
-          <div className="max-w-xl mb-12">
-            <p className="text-navy font-semibold text-sm mb-2 uppercase tracking-wider">Services</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              What we clean
-            </h2>
-            <p className="mt-3 text-muted">
-              Every job starts with Yara seeing your space in person. No generic quotes.
-            </p>
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">What we clean</h2>
+            <p className="mt-3 text-muted">Every job starts with Yara seeing your space in person. No generic quotes.</p>
           </div>
         </R>
-
         <R delay={1}>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {services.map((s) => {
               const Icon = s.icon;
               return (
-                <div key={s.title} className="bg-white rounded-xl p-6 sm:p-7 shadow-sm border border-border-light hover:border-navy/20 hover:shadow-md transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-navy/8 flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-navy" />
-                  </div>
+                <div key={s.title} className="bg-white rounded-xl p-6 border border-border-light border-t-[3px] border-t-navy hover:shadow-lg transition-shadow">
+                  <Icon className="w-6 h-6 text-navy mb-4" />
                   <h3 className="text-lg font-semibold text-foreground mb-2">{s.title}</h3>
                   <p className="text-muted text-sm leading-relaxed">{s.desc}</p>
                 </div>
@@ -300,63 +223,38 @@ function Services() {
             })}
           </div>
         </R>
-
       </div>
     </section>
   );
 }
 
-/* ════════════════════════════════════════
-   WHY YARA'S — Comparison
-   ════════════════════════════════════════ */
+/* ════════════════════════════════════════ */
 
 function WhyYaras() {
-  const rows = [
-    { label: "In-person walk-through before every quote", yaras: true, others: false },
-    { label: "Same team cleans your home every visit", yaras: true, others: false },
-    { label: "Text the owner directly, not a call center", yaras: true, others: false },
-    { label: "Flat pricing with no hidden fees or surprises", yaras: true, others: false },
-    { label: "Satisfaction guarantee on every clean", yaras: true, others: false },
+  const points = [
+    { icon: "👋", title: "In-person walk-through", desc: "Yara visits your space before quoting. Every home is different." },
+    { icon: "👥", title: "Same team every visit", desc: "No random strangers. Your team knows your home, your standards." },
+    { icon: "📱", title: "Text the owner directly", desc: "No call centers. You text Yara herself." },
+    { icon: "💰", title: "Flat, honest pricing", desc: "No hidden fees. No surprises on cleaning day." },
+    { icon: "✅", title: "Satisfaction guarantee", desc: "Not happy? Yara comes back and makes it right. Free." },
   ];
 
   return (
-    <section id="why-yaras" className="py-20 sm:py-28 bg-surface">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
+    <section id="why-yaras" className="py-20 sm:py-28 bg-navy-dark text-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <R>
-          <div className="text-center mb-12">
-            <p className="text-green font-semibold text-sm mb-2 uppercase tracking-wider">Why Yara&apos;s</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              Not a franchise. Not an app. A real team.
-            </h2>
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <h2 className="text-3xl sm:text-4xl font-bold">Why families choose Yara&apos;s</h2>
+            <p className="mt-3 text-white/60">Not a franchise. Not an app. A real team that takes care of real homes.</p>
           </div>
         </R>
-
         <R delay={1}>
-          <div className="bg-white rounded-xl border border-border overflow-hidden">
-            <div className="grid grid-cols-[1fr_72px_72px] sm:grid-cols-[1fr_100px_100px] items-center px-5 sm:px-6 py-3 bg-surface border-b border-border text-xs font-semibold text-muted uppercase tracking-wider">
-              <span />
-              <span className="text-center text-navy">Yara&apos;s</span>
-              <span className="text-center">Others</span>
-            </div>
-
-            {rows.map((row, i) => (
-              <div
-                key={row.label}
-                className={`grid grid-cols-[1fr_72px_72px] sm:grid-cols-[1fr_100px_100px] items-center px-5 sm:px-6 py-4 ${i < rows.length - 1 ? "border-b border-border-light" : ""}`}
-              >
-                <span className="text-sm text-foreground pr-4">{row.label}</span>
-                <div className="flex justify-center">
-                  <CheckIcon className="w-4 h-4 text-green" />
-                </div>
-                <div className="flex justify-center">
-                  {row.others === true ? (
-                    <CheckIcon className="w-4 h-4 text-green" />
-                  ) : row.others === false ? (
-                    <XMarkIcon className="w-4 h-4 text-border" />
-                  ) : (
-                    <span className="text-xs text-faint">{row.others}</span>
-                  )}
-                </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {points.map((p) => (
+              <div key={p.title} className="bg-white/5 border border-white/10 rounded-xl p-6">
+                <span className="text-2xl mb-3 block">{p.icon}</span>
+                <h3 className="font-semibold text-white mb-1">{p.title}</h3>
+                <p className="text-white/60 text-sm leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -366,41 +264,30 @@ function WhyYaras() {
   );
 }
 
-/* ════════════════════════════════════════
-   GUARANTEE
-   ════════════════════════════════════════ */
+/* ════════════════════════════════════════ */
 
 function Guarantee() {
   return (
-    <section className="py-16 sm:py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section className="py-16 sm:py-20 bg-orange-light">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <R>
-          <div className="bg-[#0f1923] rounded-2xl px-8 sm:px-12 py-10 sm:py-14 text-white flex flex-col sm:flex-row items-start gap-8">
+          <div className="flex flex-col sm:flex-row items-start gap-6">
             <div className="shrink-0">
-              <div className="w-16 h-16 rounded-xl bg-green/20 flex items-center justify-center">
-                <ShieldIcon className="w-8 h-8 text-green" />
+              <div className="w-14 h-14 rounded-full bg-orange flex items-center justify-center">
+                <ShieldIcon className="w-7 h-7 text-white" />
               </div>
             </div>
             <div>
-              <h3 className="text-2xl font-bold mb-3">Yara&apos;s Sparkle Promise</h3>
-              <p className="text-white/80 leading-relaxed max-w-xl">
+              <h3 className="text-2xl font-bold text-foreground mb-2">Yara&apos;s Sparkle Promise</h3>
+              <p className="text-muted leading-relaxed">
                 If something isn&apos;t right, tell Yara. She&apos;ll come back and make
                 it right. No awkward conversations, no runaround. Your home should
                 feel like yours again when we leave.
               </p>
-              <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70">
-                <span className="flex items-center gap-2">
-                  <CheckIcon className="w-3.5 h-3.5 text-green" />
-                  100% satisfaction
-                </span>
-                <span className="flex items-center gap-2">
-                  <CheckIcon className="w-3.5 h-3.5 text-green" />
-                  We&apos;ll re-clean it free
-                </span>
-                <span className="flex items-center gap-2">
-                  <CheckIcon className="w-3.5 h-3.5 text-green" />
-                  No questions asked
-                </span>
+              <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-foreground font-medium">
+                <span className="flex items-center gap-2"><CheckIcon className="w-4 h-4 text-green" />100% satisfaction</span>
+                <span className="flex items-center gap-2"><CheckIcon className="w-4 h-4 text-green" />Re-cleaned free</span>
+                <span className="flex items-center gap-2"><CheckIcon className="w-4 h-4 text-green" />No questions asked</span>
               </div>
             </div>
           </div>
@@ -410,60 +297,28 @@ function Guarantee() {
   );
 }
 
-/* ════════════════════════════════════════
-   REVIEWS
-   ════════════════════════════════════════ */
+/* ════════════════════════════════════════ */
 
 function Reviews() {
   const reviews = [
-    {
-      name: "Sarah M.",
-      location: "Worcester, MA",
-      text: "Yara and her team are amazing! They deep cleaned my entire house before we moved in and it looked brand new. I've been using them weekly ever since.",
-    },
-    {
-      name: "Mike D.",
-      location: "Nashua, NH",
-      text: "Finally found a cleaning service I can trust. Yara does a walkthrough before giving a price. No surprises. My house has never been cleaner.",
-    },
-    {
-      name: "Jessica R.",
-      location: "Boston, MA",
-      text: "I was nervous about having someone clean my apartment, but Yara made me feel so comfortable. She's thorough, professional, and genuinely cares.",
-    },
-    {
-      name: "Tom & Linda K.",
-      location: "Hudson, NH",
-      text: "We've tried other cleaning services and none compare. Yara's team catches every detail. Baseboards, corners, behind furniture. Our home feels fresh every time.",
-    },
+    { name: "Sarah M.", location: "Worcester, MA", text: "Yara and her team are amazing! They deep cleaned my entire house before we moved in and it looked brand new. I've been using them weekly ever since." },
+    { name: "Mike D.", location: "Nashua, NH", text: "Finally found a cleaning service I can trust. Yara does a walkthrough before giving a price. No surprises. My house has never been cleaner." },
+    { name: "Jessica R.", location: "Boston, MA", text: "I was nervous about having someone clean my apartment, but Yara made me feel so comfortable. She's thorough, professional, and genuinely cares." },
+    { name: "Tom & Linda K.", location: "Hudson, NH", text: "We've tried other cleaning services and none compare. Yara's team catches every detail. Baseboards, corners, behind furniture. Our home feels fresh every time." },
   ];
 
   return (
-    <section id="reviews" className="py-20 sm:py-28">
+    <section id="reviews" className="py-20 sm:py-28 bg-surface">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <R>
-          <div className="max-w-xl mb-12">
-            <p className="text-navy font-semibold text-sm mb-2 uppercase tracking-wider">Reviews</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              What our clients say
-            </h2>
-          </div>
-        </R>
-
+        <R><div className="text-center max-w-2xl mx-auto mb-14"><h2 className="text-3xl sm:text-4xl font-bold text-foreground">What our clients say</h2></div></R>
         <R delay={1}>
           <div className="grid sm:grid-cols-2 gap-5">
             {reviews.map((review) => (
-              <div key={review.name} className="bg-surface rounded-xl p-6 sm:p-8 flex flex-col">
-                <div className="flex gap-0.5 mb-4">
-                  {[1,2,3,4,5].map(s => <StarIcon key={s} className="w-4 h-4 text-gold" />)}
-                </div>
-                <p className="text-foreground leading-relaxed text-[15px] mb-6 flex-1">
-                  &ldquo;{review.text}&rdquo;
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-green text-white flex items-center justify-center text-sm font-semibold">
-                    {review.name.charAt(0)}
-                  </div>
+              <div key={review.name} className="bg-white rounded-xl p-6 sm:p-8 border border-border-light flex flex-col">
+                <div className="flex gap-0.5 mb-4">{[1,2,3,4,5].map(s => <StarIcon key={s} className="w-4 h-4 text-gold" />)}</div>
+                <p className="text-foreground leading-relaxed text-[15px] mb-6 flex-1">&ldquo;{review.text}&rdquo;</p>
+                <div className="flex items-center gap-3 pt-4 border-t border-border-light">
+                  <div className="w-9 h-9 rounded-full bg-navy text-white flex items-center justify-center text-sm font-semibold">{review.name.charAt(0)}</div>
                   <div>
                     <p className="font-semibold text-foreground text-sm">{review.name}</p>
                     <p className="text-muted text-xs">{review.location}</p>
@@ -478,56 +333,29 @@ function Reviews() {
   );
 }
 
-/* ════════════════════════════════════════
-   ABOUT YARA
-   ════════════════════════════════════════ */
+/* ════════════════════════════════════════ */
 
 function About() {
   return (
-    <section id="about" className="py-20 sm:py-28 bg-surface">
+    <section id="about" className="py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
-          <R className="lg:col-span-2">
-            <div className="bg-white rounded-2xl p-8 flex items-center justify-center">
-              <Image
-                src="/logo.png"
-                alt="Yara's Cleaning"
-                width={847}
-                height={533}
-                className="w-full max-w-sm h-auto"
-              />
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <R>
+            <div className="bg-surface rounded-2xl p-10 flex items-center justify-center">
+              <Image src="/logo.png" alt="Yara's Cleaning" width={1077} height={526} className="w-full max-w-md h-auto" />
             </div>
           </R>
-
-          <div className="lg:col-span-3">
-            <R>
-              <p className="text-green font-semibold text-sm mb-2 uppercase tracking-wider">About</p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight">
-                This is Yara&apos;s life&apos;s work.
-              </h2>
-            </R>
-
+          <div>
+            <R><h2 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight">This is Yara&apos;s life&apos;s work.</h2></R>
             <R delay={1}>
               <div className="mt-5 space-y-4 text-muted leading-relaxed">
-                <p>
-                  Yara started this business because she believes you should know
-                  and trust the people who walk into your home. Not a random crew
-                  from an app. A real team, led by someone who cares about every
-                  baseboard, every corner, every spot behind the door that other
-                  services walk right past.
-                </p>
-                <p>
-                  She personally visits every new home before quoting a price. Not
-                  because she has to, but because every home is different. A phone
-                  estimate isn&apos;t fair to you.
-                </p>
+                <p>Yara started this business because she believes you should know and trust the people who walk into your home. Not a random crew from an app. A real team, led by someone who cares about every baseboard, every corner, every spot behind the door that other services walk right past.</p>
+                <p>She personally visits every new home before quoting a price. Not because she has to, but because every home is different. A phone estimate isn&apos;t fair to you.</p>
               </div>
             </R>
-
             <R delay={2}>
-              <a href={SMS_HREF} className="mt-6 inline-flex items-center gap-2 text-green font-semibold text-sm hover:text-green-dark transition-colors">
-                Get to know Yara, text us
-                <ArrowRight className="w-4 h-4" />
+              <a href={SMS_HREF} className="mt-6 inline-flex items-center gap-2 text-orange font-semibold text-sm hover:text-orange-dark transition-colors">
+                Get to know Yara, text us <ArrowRight className="w-4 h-4" />
               </a>
             </R>
           </div>
@@ -537,64 +365,7 @@ function About() {
   );
 }
 
-/* ════════════════════════════════════════
-   SERVICE AREA
-   ════════════════════════════════════════ */
-
-function CoverageMap() {
-  return (
-    <div className="relative w-full max-w-md mx-auto">
-      <svg viewBox="0 0 400 450" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-        <rect width="400" height="450" rx="16" fill="white" stroke="#e5e7eb" strokeWidth="1" />
-
-        <line x1="30" y1="150" x2="370" y2="150" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="6 4" />
-        <text x="50" y="140" fill="#9ca3af" fontSize="11" fontWeight="600">NEW HAMPSHIRE</text>
-        <text x="50" y="168" fill="#9ca3af" fontSize="11" fontWeight="600">MASSACHUSETTS</text>
-
-        <circle cx="200" cy="100" r="75" fill="#40a249" opacity="0.06" />
-        <circle cx="200" cy="100" r="75" stroke="#40a249" strokeWidth="1.5" opacity="0.2" strokeDasharray="4 3" />
-        <circle cx="250" cy="240" r="90" fill="#1a4e92" opacity="0.06" />
-        <circle cx="250" cy="240" r="90" stroke="#1a4e92" strokeWidth="1.5" opacity="0.2" strokeDasharray="4 3" />
-        <circle cx="120" cy="280" r="65" fill="#1a4e92" opacity="0.06" />
-        <circle cx="120" cy="280" r="65" stroke="#1a4e92" strokeWidth="1.5" opacity="0.2" strokeDasharray="4 3" />
-
-        <circle cx="175" cy="60" r="4" fill="#40a249" />
-        <text x="187" y="64" fill="#1f2937" fontSize="10" fontWeight="600">Nashua</text>
-        <circle cx="250" cy="80" r="4" fill="#40a249" />
-        <text x="262" y="84" fill="#1f2937" fontSize="10" fontWeight="600">Salem</text>
-        <circle cx="155" cy="115" r="3" fill="#9ca3af" />
-        <text x="118" y="112" fill="#6b7280" fontSize="10">Hudson</text>
-        <circle cx="210" cy="100" r="3" fill="#9ca3af" />
-        <text x="195" y="90" fill="#6b7280" fontSize="10">Pelham</text>
-
-        <circle cx="290" cy="220" r="6" fill="#1a4e92" />
-        <text x="302" y="224" fill="#1f2937" fontSize="12" fontWeight="700">Boston</text>
-        <circle cx="260" cy="195" r="3" fill="#9ca3af" />
-        <text x="270" y="199" fill="#6b7280" fontSize="10">Cambridge</text>
-        <circle cx="230" cy="235" r="3" fill="#9ca3af" />
-        <text x="240" y="239" fill="#6b7280" fontSize="10">Newton</text>
-        <circle cx="300" cy="260" r="3" fill="#9ca3af" />
-        <text x="310" y="264" fill="#6b7280" fontSize="10">Quincy</text>
-        <circle cx="240" cy="265" r="3" fill="#9ca3af" />
-        <text x="250" y="269" fill="#6b7280" fontSize="10">Brookline</text>
-
-        <circle cx="115" cy="275" r="5" fill="#1a4e92" />
-        <text x="72" y="265" fill="#1f2937" fontSize="12" fontWeight="700">Worcester</text>
-        <circle cx="145" cy="300" r="3" fill="#9ca3af" />
-        <text x="155" y="304" fill="#6b7280" fontSize="10">Shrewsbury</text>
-        <circle cx="100" cy="310" r="3" fill="#9ca3af" />
-        <text x="60" y="314" fill="#6b7280" fontSize="10">Auburn</text>
-
-        <circle cx="50" cy="400" r="8" fill="#40a249" opacity="0.12" stroke="#40a249" strokeWidth="1" />
-        <text x="66" y="404" fill="#6b7280" fontSize="11">Coverage Area</text>
-        <circle cx="170" cy="400" r="4" fill="#1a4e92" />
-        <text x="182" y="404" fill="#6b7280" fontSize="11">Major City</text>
-        <circle cx="275" cy="400" r="3" fill="#9ca3af" />
-        <text x="285" y="404" fill="#6b7280" fontSize="11">Town</text>
-      </svg>
-    </div>
-  );
-}
+/* ════════════════════════════════════════ */
 
 function ServiceArea() {
   const regions = [
@@ -604,69 +375,51 @@ function ServiceArea() {
   ];
 
   return (
-    <section id="areas" className="py-20 sm:py-28">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section id="areas" className="py-20 sm:py-28 bg-green-light">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <R>
-          <div className="max-w-xl mb-12">
-            <p className="text-navy font-semibold text-sm mb-2 uppercase tracking-wider">Service Area</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              Three regions, one standard
-            </h2>
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Three regions, one standard</h2>
+            <p className="mt-3 text-muted">From Southern New Hampshire through Greater Boston and out to Worcester.</p>
           </div>
         </R>
-
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-          <R>
-            <CoverageMap />
-          </R>
-
-          <div className="space-y-4">
-            {regions.map((region, i) => (
-              <R key={region.name} delay={Math.min(i + 1, 3)}>
-                <div className="bg-surface rounded-xl p-5">
-                  <h3 className="font-semibold text-foreground mb-1">{region.name}</h3>
-                  <p className="text-muted text-sm">{region.areas}</p>
+        <div className="grid sm:grid-cols-3 gap-4">
+          {regions.map((region, i) => (
+            <R key={region.name} delay={Math.min(i + 1, 3)}>
+              <div className="bg-white rounded-xl p-5 border border-green/20">
+                <div className="w-8 h-8 rounded-full bg-green/10 flex items-center justify-center mb-3">
+                  <MapPinIcon className="w-4 h-4 text-green" />
                 </div>
-              </R>
-            ))}
-
-            <R delay={4}>
-              <p className="text-sm text-muted">
-                Not sure if we cover your area?{" "}
-                <a href={SMS_HREF} className="text-green font-medium hover:text-green-dark transition-colors">
-                  Text us and ask &rarr;
-                </a>
-              </p>
+                <h3 className="font-semibold text-foreground mb-1">{region.name}</h3>
+                <p className="text-muted text-sm">{region.areas}</p>
+              </div>
             </R>
-          </div>
+          ))}
         </div>
+        <R delay={4}>
+          <p className="mt-8 text-center text-sm text-muted">
+            Not sure if we cover your area?{" "}
+            <a href={SMS_HREF} className="text-green font-medium hover:text-green-dark transition-colors">Text us and ask &rarr;</a>
+          </p>
+        </R>
       </div>
     </section>
   );
 }
 
-/* ════════════════════════════════════════
-   FAQ
-   ════════════════════════════════════════ */
+/* ════════════════════════════════════════ */
 
 function FAQItem({ q, a }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border-b border-border-light">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between py-5 text-left"
-      >
+    <div className="border-b border-border">
+      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between py-5 text-left">
         <span className="text-foreground font-medium pr-8">{q}</span>
-        <span className={`shrink-0 text-muted transition-transform ${open ? "rotate-45" : ""}`}>
+        <span className={`shrink-0 text-navy transition-transform ${open ? "rotate-45" : ""}`}>
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
         </span>
       </button>
-      {open && (
-        <div className="pb-5 text-muted text-sm leading-relaxed pr-12">
-          {a}
-        </div>
-      )}
+      {open && <div className="pb-5 text-muted text-sm leading-relaxed pr-12">{a}</div>}
     </div>
   );
 }
@@ -685,61 +438,27 @@ function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-20 sm:py-28 bg-surface">
+    <section id="faq" className="py-20 sm:py-28">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <R>
-          <div className="max-w-xl mb-12">
-            <p className="text-green font-semibold text-sm mb-2 uppercase tracking-wider">FAQ</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              Common questions
-            </h2>
-          </div>
-        </R>
-
-        <R delay={1}>
-          <div className="border-t border-border-light">
-            {faqs.map((faq) => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
-            ))}
-          </div>
-        </R>
+        <R><div className="text-center max-w-2xl mx-auto mb-12"><h2 className="text-3xl sm:text-4xl font-bold text-foreground">Common questions</h2></div></R>
+        <R delay={1}><div className="border-t border-border">{faqs.map((faq) => <FAQItem key={faq.q} q={faq.q} a={faq.a} />)}</div></R>
       </div>
     </section>
   );
 }
 
-/* ════════════════════════════════════════
-   CTA
-   ════════════════════════════════════════ */
+/* ════════════════════════════════════════ */
 
 function CTA() {
   return (
-    <section className="py-20 sm:py-28">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <R>
-          <div className="bg-navy rounded-2xl px-8 sm:px-16 py-14 sm:py-20 text-center text-white">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-              Ready for a cleaner home?
-            </h2>
-            <p className="mt-4 text-white/80 max-w-md mx-auto">
-              Text or call Yara for a free walk-through and estimate. No pressure, no obligation.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
-                href={SMS_HREF}
-                className="inline-flex items-center gap-2 bg-green text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-green-dark transition-colors"
-              >
-                <MessageIcon className="w-4 h-4" />
-                Text Us Now
-              </a>
-              <a
-                href={PHONE_HREF}
-                className="inline-flex items-center gap-2 bg-white/10 text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-white/20 transition-colors"
-              >
-                <PhoneIcon className="w-4 h-4" />
-                {PHONE}
-              </a>
-            </div>
+    <section className="py-20 sm:py-28 bg-navy-dark">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <R><h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">Ready for a cleaner home?</h2></R>
+        <R delay={1}><p className="mt-4 text-white/70 max-w-md mx-auto">Text or call Yara for a free walk-through and estimate. No pressure, no obligation.</p></R>
+        <R delay={2}>
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href={SMS_HREF} className="inline-flex items-center gap-2 bg-orange text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-orange-dark transition-colors"><MessageIcon className="w-4 h-4" />Text Us Now</a>
+            <a href={PHONE_HREF} className="inline-flex items-center gap-2 bg-white/10 text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-white/20 transition-colors border border-white/20"><PhoneIcon className="w-4 h-4" />{PHONE}</a>
           </div>
         </R>
       </div>
@@ -747,29 +466,21 @@ function CTA() {
   );
 }
 
-/* ════════════════════════════════════════
-   FOOTER
-   ════════════════════════════════════════ */
+/* ════════════════════════════════════════ */
 
 function Footer() {
   const year = new Date().getFullYear();
-
   return (
     <footer className="bg-[#0c1520] text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-          {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Image src="/logo.png" alt="Yara's Cleaning" width={1077} height={526} className="h-14 w-auto mb-4 brightness-0 invert" />
-            <p className="text-white/70 text-sm leading-relaxed max-w-xs">
-              Spotless homes, caring service. Licensed, insured, and serving families across MA & NH.
-            </p>
+            <p className="text-white/60 text-sm leading-relaxed max-w-xs">Spotless homes, caring service. Licensed, insured, and serving families across MA & NH.</p>
           </div>
-
-          {/* Services */}
           <div>
             <h4 className="font-semibold text-white text-sm mb-4">Services</h4>
-            <ul className="space-y-2.5 text-white/70 text-sm">
+            <ul className="space-y-2.5 text-white/50 text-sm">
               <li><a href="#services" className="hover:text-white transition-colors">House Cleaning</a></li>
               <li><a href="#services" className="hover:text-white transition-colors">Apartment Cleaning</a></li>
               <li><a href="#services" className="hover:text-white transition-colors">Office Cleaning</a></li>
@@ -777,11 +488,9 @@ function Footer() {
               <li><a href="#services" className="hover:text-white transition-colors">Move-In / Move-Out</a></li>
             </ul>
           </div>
-
-          {/* Links */}
           <div>
             <h4 className="font-semibold text-white text-sm mb-4">Company</h4>
-            <ul className="space-y-2.5 text-white/70 text-sm">
+            <ul className="space-y-2.5 text-white/50 text-sm">
               <li><a href="#why-yaras" className="hover:text-white transition-colors">Why Yara&apos;s</a></li>
               <li><a href="#reviews" className="hover:text-white transition-colors">Reviews</a></li>
               <li><a href="#about" className="hover:text-white transition-colors">About Yara</a></li>
@@ -789,77 +498,43 @@ function Footer() {
               <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
             </ul>
           </div>
-
-          {/* Contact */}
           <div>
             <h4 className="font-semibold text-white text-sm mb-4">Contact</h4>
             <div className="space-y-3">
-              <a href={SMS_HREF} className="flex items-center gap-2 text-sm text-green hover:text-white transition-colors font-medium">
-                <MessageIcon className="w-4 h-4" />
-                Text Us
-              </a>
-              <a href={PHONE_HREF} className="flex items-center gap-2 text-sm text-green hover:text-white transition-colors font-medium">
-                <PhoneIcon className="w-4 h-4" />
-                {PHONE}
-              </a>
+              <a href={SMS_HREF} className="flex items-center gap-2 text-sm text-orange hover:text-white transition-colors font-medium"><MessageIcon className="w-4 h-4" />Text Us</a>
+              <a href={PHONE_HREF} className="flex items-center gap-2 text-sm text-orange hover:text-white transition-colors font-medium"><PhoneIcon className="w-4 h-4" />{PHONE}</a>
             </div>
-            <div className="mt-4 space-y-2 text-xs text-white/60">
-              <div className="flex items-center gap-1.5">
-                <ShieldIcon className="w-3 h-3" />
-                Licensed & Insured
-              </div>
-              <div className="flex items-center gap-1.5">
-                <DollarIcon className="w-3 h-3" />
-                Cash, Check & Venmo
-              </div>
+            <div className="mt-4 space-y-2 text-xs text-white/40">
+              <div className="flex items-center gap-1.5"><ShieldIcon className="w-3 h-3" />Licensed & Insured</div>
+              <div className="flex items-center gap-1.5"><DollarIcon className="w-3 h-3" />Cash, Check & Venmo</div>
             </div>
           </div>
         </div>
-
-        <div className="mt-10 pt-6 border-t border-white/10 text-center text-xs text-white/50">
-          &copy; {year} Yara&apos;s Cleaning. All rights reserved.
-        </div>
+        <div className="mt-10 pt-6 border-t border-white/10 text-center text-xs text-white/30">&copy; {year} Yara&apos;s Cleaning. All rights reserved.</div>
       </div>
     </footer>
   );
 }
 
-/* ════════════════════════════════════════
-   STICKY MOBILE CTA
-   ════════════════════════════════════════ */
+/* ════════════════════════════════════════ */
 
 function StickyMobileCTA() {
   const [visible, setVisible] = useState(false);
-
   useEffect(() => {
     const fn = () => setVisible(window.scrollY > 500);
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
-
   if (!visible) return null;
-
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border px-4 py-3 flex gap-3">
-      <a href={SMS_HREF} className="flex-1 text-center bg-green text-white py-3 rounded-lg text-sm font-semibold">
-        <span className="flex items-center justify-center gap-2">
-          <MessageIcon className="w-4 h-4" />
-          Text Us
-        </span>
-      </a>
-      <a href={PHONE_HREF} className="flex-1 text-center bg-navy text-white py-3 rounded-lg text-sm font-semibold">
-        <span className="flex items-center justify-center gap-2">
-          <PhoneIcon className="w-4 h-4" />
-          Call Now
-        </span>
-      </a>
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-orange px-4 py-3 flex gap-3">
+      <a href={SMS_HREF} className="flex-1 text-center bg-white text-orange-dark py-3 rounded-lg text-sm font-bold">Text Us</a>
+      <a href={PHONE_HREF} className="flex-1 text-center bg-white/20 text-white py-3 rounded-lg text-sm font-bold border border-white/30">Call {PHONE}</a>
     </div>
   );
 }
 
-/* ════════════════════════════════════════
-   PAGE
-   ════════════════════════════════════════ */
+/* ════════════════════════════════════════ */
 
 export default function Home() {
   return (
