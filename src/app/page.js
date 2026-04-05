@@ -139,39 +139,39 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="pt-40 sm:pt-48 pb-20 sm:pb-28 bg-navy text-white">
+    <section className="pt-36 sm:pt-44 pb-16 sm:pb-20 bg-navy">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="max-w-2xl mx-auto text-center">
+        <div className="max-w-xl">
           <R>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white leading-[1.15] tracking-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.15] tracking-tight">
               Your home deserves someone who actually cares.
             </h1>
           </R>
           <R delay={1}>
-            <p className="mt-5 text-lg text-white/75 leading-relaxed max-w-xl mx-auto">
+            <p className="mt-4 text-base sm:text-lg text-white/75 leading-relaxed">
               Yara walks through your space, gives you an honest price, and
               her team cleans it like their own. Free estimates, no surprises,
               no contracts.
             </p>
           </R>
           <R delay={2}>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a href={SMS_HREF} className="inline-flex items-center gap-2 bg-green text-white px-7 py-3.5 rounded-lg text-sm font-semibold hover:bg-green-dark transition-colors">
+            <div className="mt-7 flex flex-col sm:flex-row items-start gap-3">
+              <a href={SMS_HREF} className="inline-flex items-center gap-2 bg-green text-white px-6 py-3.5 rounded-lg text-sm font-semibold hover:bg-green-dark transition-colors">
                 <MessageIcon className="w-4 h-4" />Text Us for a Free Estimate
               </a>
-              <a href={PHONE_HREF} className="inline-flex items-center gap-2 bg-white/15 text-white px-7 py-3.5 rounded-lg text-sm font-semibold hover:bg-white/25 transition-colors border border-white/25">
+              <a href={PHONE_HREF} className="inline-flex items-center gap-2 bg-white text-navy px-6 py-3.5 rounded-lg text-sm font-semibold hover:bg-white/90 transition-colors">
                 <PhoneIcon className="w-4 h-4" />{PHONE}
               </a>
             </div>
           </R>
           <R delay={3}>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/60">
+            <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/60">
               <span className="flex items-center gap-1.5">
                 <div className="flex">{[1,2,3,4,5].map(i => <StarIcon key={i} className="w-3.5 h-3.5 text-gold" />)}</div>
                 5-Star Rated
               </span>
               <span className="flex items-center gap-1.5"><ShieldIcon className="w-3.5 h-3.5 text-green" />Licensed & Insured</span>
-              <span className="flex items-center gap-1.5"><CalendarIcon className="w-3.5 h-3.5 text-navy" />Weekly, Biweekly, Monthly</span>
+              <span className="flex items-center gap-1.5"><CalendarIcon className="w-3.5 h-3.5 text-green" />Weekly, Biweekly, Monthly</span>
             </div>
           </R>
         </div>
