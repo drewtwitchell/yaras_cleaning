@@ -90,7 +90,7 @@ function Header() {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 bg-white ${scrolled ? "shadow-sm" : ""}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 ${scrolled ? "bg-white shadow-sm" : "bg-navy"}`}>
       <div className="bg-green text-white text-xs font-medium">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between">
           <div className="hidden sm:flex items-center gap-5">
@@ -105,16 +105,16 @@ function Header() {
       </div>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-18 sm:h-20">
         <a href="#" className="shrink-0">
-          <Image src="/logo.png" alt="Yara's Cleaning" width={1077} height={526} className="h-12 sm:h-16 w-auto" priority />
+          <Image src="/logo.png" alt="Yara's Cleaning" width={1077} height={526} className={`h-12 sm:h-16 w-auto transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`} priority />
         </a>
         <nav className="hidden md:flex items-center gap-7 text-sm">
           {["Services","Why Us","Reviews","About","FAQ"].map((label) => {
             const href = `#${label === "Why Us" ? "why-yaras" : label.toLowerCase()}`;
-            return <a key={label} href={href} className="text-muted hover:text-foreground transition-colors font-medium">{label}</a>;
+            return <a key={label} href={href} className={`${scrolled ? "text-muted hover:text-foreground" : "text-white/80 hover:text-white"} transition-colors duration-300 font-medium`}>{label}</a>;
           })}
           <a href={SMS_HREF} className="bg-green text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-green-dark transition-colors">Get Free Estimate</a>
         </nav>
-        <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden p-2" aria-label="Menu">
+        <button onClick={() => setMenuOpen(!menuOpen)} className={`md:hidden p-2 ${scrolled ? "" : "text-white"}`} aria-label="Menu">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {menuOpen ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /> : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />}
           </svg>
